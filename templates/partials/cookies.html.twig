@@ -1,0 +1,102 @@
+{#
+	@description this script is used to generate the cookies snippet
+	@since PM (07.03.2021) standalone
+	@see https://learn.getgrav.org/17/themes/theme-vars#page-object
+	@see https://twig.symfony.com/doc/3.x/tags/if.html
+	@see https://learn.getgrav.org/17/themes/twig-tags-filters-functions/functions#nonce-field
+	@see https://learn.getgrav.org/17/themes/twig-tags-filters-functions/functions#random-string
+	@see https://learn.getgrav.org/17/themes/twig-tags-filters-functions/functions#get-cookie #alternative
+#}
+{% import "partials/utils.html.twig" as utils %}
+
+{% if page.url(false, false, false, true) != THEME.privacy_policy %}{# the privacy policy page should be directly accessible #}
+	{# privacy policy #}
+	{% set object = null %}
+	{% for page in pages.children if object is null %} {# fetching the pages #}
+		{% if page.isPage and page.header.title and page.content and page.url(false, false, false, true) == THEME.privacy_policy %}
+			{% set object = page %}
+		{% endif %}
+	{% endfor %}
+
+	{% autoescape false %}
+		{% if not tapmorph_cookies_settings %}{# TRUE if the settings must be (re-)made #}
+			{# 
+				@see https://getbootstrap.com/docs/5.1/components/modal/ 
+				@see https://getbootstrap.com/docs/5.1/components/modal/#vertically-centered
+			#}
+			{% set key = tapmorph_cookies_key %}
+			{% set mark = 'modal' %}
+			<aside 
+				id="{{ key }}" 
+				class="{{ mark }} fade show {{ key }}-{{ THEME.design.text }}" 
+				data-bs-backdrop="static"
+				data-bs-keyboard="false" 
+				tabindex="-1" 
+				aria-hidden="true"
+			>
+				<article class="{{ mark }}-dialog {{ mark }}-dialog-centered {{ mark }}-dialog-scrollable">
+					<div class="{{ mark }}-content {{ key }}-content">
+						<section class="{{ mark }}-body {{ key }}-primary">
+							{% if THEME[key] %}
+								{% set res = THEME[key]|first %}
+								<div class="{{ key }}-image">
+									<img src="{{ res|tapmorphResource }}" alt="{{ config.site.title }}: {{ res.name }}">
+								</div>
+							{% endif %}
+							<h3 class="{{ key }}-title">{{ 'intro_title'|tapmorphLabelC }}</h3>
+							<p class="{{ key }}-info">{{ 'intro_content'|tapmorphLabelC }}</p>
+						</section>
+						<form method="POST" action="">
+							{{ nonce_field(tapmorph_auth) }}{# security by confusion :-) #}
+							<input type="hidden" name="{{ tapmorph_auth }}" value="{{ random_string(20) }}">
+							<input type="checkbox" id="{{ key }}_seconder" class="{{ key }}-toggler">
+							<div class="container {{ key }}-navigation {{ key }}-toggler-off">
+								<div>
+									{% if object %}
+										<a class="button-link" href="{{ object.url }}" target="_blank">{{ 'buttons_more_info'|tapmorphLabelC }}</a>
+									{% endif %}
+								</div>
+								<div class="btn-group" role="group">
+									<button type="button" class="btn button-outline">
+										<label for="{{ key }}_seconder">{{ 'buttons_selection_manual'|tapmorphLabelC }}</label>
+									</button>
+									<button type="button" class="btn button submit submit-all">
+										{{ 'buttons_agreement'|tapmorphLabelC }}
+									</button>
+								</div>
+							</div>
+							<div class="{{ key }}-navigation {{ key }}-toggler-on">
+								<div>
+									{% if object %}
+										<a class="button-link" href="{{ object.url }}" target="_blank">{{ 'buttons_more_info'|tapmorphLabelC }}</a>
+									{% endif %}
+								</div>
+								<div class="btn-group" role="group">
+									<button type="button" class="btn button-outline submit">
+										{{ 'buttons_selection_confirm'|tapmorphLabelC }}
+									</button>
+									<button type="button" class="btn button submit submit-all">
+										{{ 'buttons_accept'|tapmorphLabelC }}
+									</button>
+								</div>
+							</div>
+							<div class="{{ key }}-secondary {{ key }}-toggler-on">
+								{{ utils.cookies(true, '', key, 'essential') }}
+								{% for node in tapmorph_cookies_nodes %}
+									{{ utils.cookies(THEME['cookies_snippets_'~ node]|trim, '<hr>', key, node) }}
+								{% endfor %}
+							</div>
+						</form>
+					</div>
+				</article>
+			</aside>
+		{% else %}{# TRUE if the settings has already be made #}
+			{{ THEME.cookies_snippets_essential }}
+			{% for node in tapmorph_cookies_nodes %}
+				{% if THEME['cookies_snippets_'~ node]|trim and tapmorph_cookies_settings[node] %}
+					{{ THEME['cookies_snippets_'~ node] }}
+				{% endif %}
+			{% endfor %}
+		{% endif %}
+	{% endautoescape %}
+{% endif %}

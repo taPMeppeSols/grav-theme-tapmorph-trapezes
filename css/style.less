@@ -1,0 +1,309 @@
+/**
+	@since PM (15.12.2019)
+	@copyright taPMeppe solutions
+	the main script used to design the page
+	inspired by the project 'eventually' @see https://html5up.net/solid-state
+
+	font: Roboto
+	@source https://fonts.googleapis.com/css?family=Roboto:400,700
+	@see https://www.maketecheasier.com/use-google-roboto-font-everywhere/ 
+	@tutorial https://www.fontsquirrel.com/fonts/roboto
+	@tutorial https://fonts.google.com/specimen/Roboto?selection.family=Roboto
+
+	font: fontawesome v4 >> icomoon
+	@see https://icomoon.io
+	@import url("https://fonts.googleapis.com/css?family=Roboto:400,700");
+*/
+
+//##### ATTRIBUTES #####
+//bootstrap viewports
+@VP_XS_MAX: 575px;
+@VP_SM_MIN: @VP_XS_MAX + 1px; //576px;
+@VP_SM_MAX: 767px;
+@VP_MD_MIN: @VP_SM_MAX + 1px; //768px;
+@VP_MD_MAX: 991px;
+@VP_LG_MIN: @VP_MD_MAX + 1px; //992px;
+@VP_LG_MAX: 1199px;
+@VP_XL_MIN: @VP_LG_MAX + 1px; //1200px;
+//...
+@break_mobile: @VP_SM_MAX;
+@break_laptop: @VP_MD_MIN;
+@break_desktop: @VP_LG_MIN;
+@break_television: @VP_XL_MIN;
+
+//colors
+/**
+ * taPMeppe solutions
+ * - background: #2B2B2B
+ * - text: #d4d5d6 ~= lighten(#939598, 25%) ; alternative #A9B7C6
+ * - button: #408746 ~= darken(#71BC78, 20%)
+ * - left: #203038
+ * - right: #1B3C48
+ */
+@color_background: #2B2B2B; //taPMeppe solutions :: dark
+@color_background_transp: rgba(@color_background, .75);
+@color_text: #fff;
+@color_button: #e7746f;
+@color_trapeze_left: "3f4e85";
+@color_trapeze_left_hex: ~"#@{color_trapeze_left}";
+@color_trapeze_right: "45558d";
+@color_trapeze_right_hex: ~"#@{color_trapeze_right}";
+@color_green: #317f43;
+@color_yellow: #ff9800;
+//...
+@color_green: #71bc78; //taPMeppe logo green
+@color_blue: #0087A6; //company's logo blue
+@color_blue_text: #607d8b; //company's blue usually used for texts
+@color_blue_navy: #203138; //company
+//...
+@color_w3_light: #ccc;
+@color_w3_blue: #2196F3; //w3-blue
+@color_w3_red: #f44336; //w3-red; #DC4C46; //w3.css 2017-grenadine
+@color_w3_green: #4CAF50; //w3-green
+@color_w3_purple: #9c27b0; //w3-purple
+
+//units
+@duration: .5s;
+@duration_half: @duration * .5;
+@dim: 1em;
+@dim2: 2em;
+@dim_2: .5em;
+@dim_4: .25em;
+@dim_pt: 12pt;
+@dim_pt2: 15pt;
+@dim_bootstrap: 15px; //the margin used by bootstrap
+
+@dim_radius: @dim_4;
+@dim_margin: 1rem;
+@dim_form: 430px; //large enough for the form file selector to list 3 resources in one line
+@dim_trapeze: 6em; /** @source https://html5up.net/solid-state */
+@dim_trapeze_min: 300px;
+@opacity_off: .2;
+@z_index: 5;
+
+//others
+@slug: tapmorph;
+@row: ~'.@{slug}-row';
+@row2: ~'.row@{row}';
+@button: .btn.button;
+
+
+//##### FUNCTIONS #####
+.mx_hide(){ display: none }
+.mx_hide_2(){
+	position: absolute!important;
+	left: -10000%!important;
+	top: -10000%!important;
+	visibility: hidden!important;
+	.mx_hide()!important
+}
+.mx_pointer(){ cursor: pointer }
+.mx_margin_auto(){
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.mx_fs(@size){
+	font-size: @size;
+	line-height: @dim;
+}
+.mx_bg_img(@size){
+	//background-color: #2e3141;
+	//background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url(../../images/bg.jpg);
+	background-size: @size;
+	background-attachment: fixed;
+	background-position: center;
+}
+
+
+//##### DESIGN #####
+:root {
+	--font-size: @dim_pt;
+	--color-scrollbar-background: @color_background;
+	//--color-scrollbar-thumb: --color-button;
+	--color-text: @color_text;
+	--color-text-blue: @color_blue_text;
+	--color-button: @color_button;
+	//--email-addresses-anchor-color: var(--color-button); this works
+	--color-left: @color_trapeze_left_hex;
+	--color-right: @color_trapeze_right_hex;
+	--color-dark: @color_blue_navy;
+	--text-transform-navigation: capitalize; //uppercase
+}
+::-webkit-scrollbar { //@see https://www.w3schools.com/howto/howto_css_custom_scrollbar.asp
+	width: 10px;
+
+	&-track { background: transparent }
+	&-corner { background-color: var(--color-scrollbar-background) } //transparent
+	&-thumb { 
+		background: var(--color-button);
+		border-radius: @dim_radius;
+		//&:hover { background: var(--color-left) }
+	}
+}
+:focus-visible,
+button:focus,
+.form-control:focus
+{
+	outline-color: var(--color-button);
+	outline-style: auto;
+	outline-width: 1px;
+}
+//::selection {}
+
+
+//##### elements 1/2
+html, 
+body 
+{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	height: 100%;
+	width: 100%;
+	background-color: @color_background;
+	color: var(--color-text);
+}
+html { 
+	@media (prefers-reduced-motion: no-preference) {
+		// @see https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion
+		// @see https://caniuse.com/css-scroll-behavior
+		scroll-behavior: smooth;
+	}
+}
+body { 
+	font-size: var(--font-size);
+	.mx_bg_img(cover);
+	padding-right: 0!important; //bug fix by overwriting bootstrap
+
+
+	//##### elements 2/2
+	pre {
+		position: fixed;
+		top: 0;
+		left: 5%;
+		width: 90%;
+		max-height: 50%;
+		overflow: auto;
+		background-color: @color_background_transp;
+		color: @color_text;
+		font-size: @dim_pt;
+		z-index: @z_index * 9000;
+	}
+	main { background-color: @color_background_transp }
+	h1 { .mx_fs(@dim * 3) }
+	h2 { .mx_fs(@dim2) }
+	h3 { .mx_fs(@dim *(3/2) ) }
+	h4, h5, h6 { .mx_fs(@dim *(9/8) ) }
+	p { margin: 0 }
+	hr { border-top-color: var(--color-button); }
+
+
+	//##### classes 1/2
+	.center {
+		position: absolute;
+		text-align: center;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+	.mask {
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		left: 0;
+		top: 0;
+		background-color: @color_background_transp;
+	}
+	@{row}{ //@source bootstrap::.row
+		display: flex;
+		flex-wrap: wrap;
+
+		> div { 
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+	@{row2}{ .mx_margin_auto() }
+	.modal.show {
+		padding-right: 0!important; //bug fix by overwriting bootstrap
+		background: @color_background_transp;
+	}
+	.btn-group.button-group { display: block } //overwrite bootstrap
+	@{button}{
+		color: var(--color-text);
+		background-color: var(--color-button);
+		border-color: var(--color-button);
+
+		&.disabled, &:disabled { cursor: not-allowed }
+		&:not(.disabled):not(:disabled){
+			&:not(.button-color){
+				transition: transform @duration ease;
+				&:active, &:focus, &:hover { transform: scale(1.1) }
+			}
+			&.button-color:hover {
+				transition: color @duration ease, background-color @duration ease;
+				color: var(--color-button);
+				background-color: var(--color-text);
+			}
+		}
+	}
+	.btn.button-outline {
+		border: 1px solid var(--color-text);
+		color: var(--color-text);
+		transition: transform @duration ease;
+
+		&:hover { transform: scale(1.1) }
+	}
+	a.button-link {
+		color: var(--color-button);
+		text-decoration: none;
+		transition: font-weight @duration ease;
+
+		&:active, &:focus, &:hover { font-weight: bolder }
+	}
+
+	
+	//##### IDs
+	@import 'style.more.cookies.less';
+	@import 'style.more.navigation.less';
+	@import 'style.more.header.less';
+	@import 'style.more.trapeze.less';
+	@import 'style.more.form.less';
+	@import 'style.more.subscribers.less'; //.mx_subscriber_info_anchor_color(var(--color-button));
+	@import 'style.more.footer.less';
+
+	//##### others
+	div.modal-backdrop { .mx_hide()!important } //bug fix by hiding the modal-backdrop
+}
+
+//##### classes 2/2
+.notification { //@see https://getbootstrap.com/docs/4.5/components/alerts/
+	padding: @dim_2;
+	
+	&:not(.active){ .mx_hide() }
+
+	// && is on purpose: .notification.notification-xxx
+	&&-progress { //bootstrap: alert-primary
+		color: #004085;
+		background-color: #cce5ff;
+		border-color: #b8daff;
+	}
+	&&-success { //bootstrap: alert-success
+		color: #155724;
+		background-color: #d4edda;
+		border-color: #c3e6cb;
+	}
+	&&-exists,
+	&&-warning
+	{ //bootstrap: alert-warning
+		color: #856404;
+		background-color: #fff3cd;
+		border-color: #ffeeba;
+	}
+	&&-error { //bootstrap: alert-danger
+		color: #721c24;
+		background-color: #f8d7da;
+		border-color: #f5c6cb;
+	}
+}

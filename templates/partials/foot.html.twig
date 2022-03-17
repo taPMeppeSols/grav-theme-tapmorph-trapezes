@@ -1,0 +1,80 @@
+{#
+	@description this script is used to generate the foot snippet
+	@since PM (29.11.2020) standalone
+#}
+{% autoescape false %}
+	<footer id="foot" class="{{ container }}">
+		{% block bottom %}
+			<script>
+				const TAPMORPH = {
+					slug: '{{ SLUG }}',
+					auth: '{{ tapmorph_auth }}',
+					dev: '{{ tapmorph_dev }}' == '1',
+					name: '{{ tapmorph_name }}',
+					email: '{{ tapmorph_email }}',
+					emails: '{{ tapmorph_emails }}',
+					//...
+					cookies: '{{ tapmorph_cookies_key }}',
+					add: '{{ tapmorph_trapeze_add }}',
+					browser: '{{ browser.browser }}',
+					os: '{{ browser.platform }}',
+				};
+			</script>
+			{{ assets.js('bottom') }}
+		{% endblock %}
+		{% block design %}
+			{% set design = THEME.design %}
+			{% if design.status %}
+				{% set trapeze = '#content>.'~ tapmorph_trapeze_key ~'.'~ tapmorph_trapeze_key ~'-' %}
+				{% set trapezeAdd = '#content>.'~ tapmorph_trapeze_key ~'.'~ tapmorph_trapeze_add %}
+
+				{# standard colors #}
+				{# @see https://twig.symfony.com/doc/2.x/tags/for.html#iterating-over-keys-and-values #}
+				{% set root = '' %} {# :root #}
+				{% for key, color in design.colors_default %}
+					{% set color = color|trim %}
+					{% if color %}
+						{% set root = root ~ '--color-' ~ key ~ ': ' ~ color ~ '; ' %}
+						{% if key in ['left', 'right'] %}
+							{% set color = color|regex_replace('@^#@', '') %} {# remove the leading HEX sign #}
+							<style>
+								body {{ trapeze }}{{ key }}:before, body {{ trapeze }}{{ key }}:after {
+									background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:%23{{ color }}%3B' /%3E%3C/svg%3E");
+								}
+							</style>
+						{% endif %}
+					{% endif %}
+				{% endfor %}
+				{##}
+				{% if root %}
+					<style>
+						:root { {{ root }} }
+					</style>
+				{% endif %}
+
+				{# additional trapeze colors #}
+				{% for additional in design.colors_additional %}
+					{% set name = additional.name|trim|regex_replace('@\\W+@', '-') %} {# one class at the time #}
+					{% set color = additional.color|trim|regex_replace('@^#@', '') %} {# remove the potentially leading HEX sign #}
+					{% if name and color %}
+						{% set color_hex = '#'~ color %}
+						<style>
+							body {{ trapezeAdd }}{{ name }} { background-color: {{ color_hex }} }
+							body {{ trapezeAdd }}{{ name }}:before, body {{ trapezeAdd }}{{ name }}:after {
+								background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:%23{{ color }}%3B' /%3E%3C/svg%3E");
+								box-shadow: inset 0 -1px 0 0 {{ color_hex }}, 0 1px 0 0 {{ color_hex }};
+							}
+						</style>
+					{% endif %}
+				{% endfor %}
+
+				{# custom CSS #}
+				{% if design.custom_css %}
+					<style>
+						{{ design.custom_css|trim }}
+					</style>
+				{% endif %}
+			{% endif %}
+		{% endblock %}
+	</footer>
+{% endautoescape %}

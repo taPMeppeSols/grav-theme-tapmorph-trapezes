@@ -1,0 +1,5 @@
+<div class="btn-group button-group {{ class }}" id="{{ id }}" role="group">
+{% for anchor in anchors %}
+	<a class="btn button {{ anchor.class }}" id="{{ anchor.id }}" href="{{ anchor.href }}" target="{{ anchor.target }}">{{ anchor.label }}</a>
+{% endfor %}
+</div>

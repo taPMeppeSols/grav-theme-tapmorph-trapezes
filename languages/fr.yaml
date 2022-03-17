@@ -1,0 +1,77 @@
+THEME_TAPMORPH_TRAPEZES:
+  BUTTON: S'enregistrer
+  DELETION_ERROR: Erreur ! L'adresse e-mail n'a pas pu être supprimée de la liste de diffusion.
+  DELETION_NOT_FOUND: L'adresse e-mail n'a pas pu être trouvée dans la liste de diffusion.
+  DELETION_SUCCESS: L'adresse e-mail a été retirée avec succès de la liste de diffusion.
+  DESIGN: Design
+  EMAIL: Adresse e-mail
+  FAVICON: Favicon
+  FAVICON_DESC: Recommandé <strong>512x512</strong> pixels. Si laissée vide, la favicon par défaut sera utilisée.
+  FAVICON_HELP: Recommandé 512x512 pixels. Si laissée vide, la favicon par défaut sera utilisée.
+  HEAD: Tête
+  LEGAL: Affaires légales
+  LOGO: Logo
+  LOGO_DESC: S'il est laissé vide, le logo par défaut sera utilisé.
+  NAME: Nom
+  NOTIFICATION_ERROR: Erreur ! Quelque chose s'est mal passé.
+  NOTIFICATION_EXISTS: Cette adresse e-mail a déjà été enregistrée.
+  NOTIFICATION_PROGRESS: En cours ...
+  NOTIFICATION_SUCCESS: Succès ! Vérifiez votre boîte de réception.
+  PAGE_DESC: <strong>Autre que l'avis en ligne</strong> une <em style="color:#f8444e">page</em> dans laquelle se trouve le contenu peut être utilisé.
+  PAGE_IMPRINT: Mentions légales (page indépendante)
+  PAGE_IMPRINT_INLINE: Mentions légales (en ligne)
+  PAGE_IMPRINT_INLINE_HELP: Le texte qui apparaîtra au bas du site.
+  PAGE_LANGUAGE: Langue
+  PAGE_LANGUAGE_HELP: Sélectionnez la langue par défaut pour activer le contenu dans toutes les langues.
+  PAGE_PRIVACY_POLICY: Politique de confidentialité (page indépendante)
+  PAGE_PRIVACY_POLICY_DESC: Utilisez <strong>seulement</strong> les crochets <code>[ ... ]</code> pour marquer le terme/mot dans le titre qui doit être utilisé comme élément cliquable pour ouvrir/visualiser la politique de confidentialité. La politique de confidentialité est directement accessible <a href="/?privacy-policy=1" target="_blank">ici</a>.<br><strong>Autre que l'avis en ligne</strong> une <em style="color:#f8444e">page</em> dans laquelle se trouve le contenu peut être utilisé.
+  PAGE_PRIVACY_POLICY_HELP: "Utilisez SEULEMENT les crochets <code>[ ... ]</code> pour marquer le terme/mot dans le titre qui doit être utilisé comme élément cliquable pour ouvrir/visualiser la politique de confidentialité. La politique de confidentialité est directement accessible ici: _HOME_URL_?privacy-policy=1 ."
+  PAGE_PRIVACY_POLICY_INLINE: Politique de confidentialité (en ligne)
+  PAGE_PRIVACY_POLICY_INLINE_HELP: Le texte qui apparaîtra dans le formulaire d'inscription. Utilisez UNIQUEMENT les crochets ([ ... ]) pour marquer le terme/mot dans le titre qui doit être utilisé comme élément cliquable pour ouvrir/visualiser la politique de confidentialité.
+  PAGE_TITLE: Titre
+  PAGE_TYPE_FULL_EXPLORE: Explorer
+  SELECT: '-- Choisir --'
+  REGISTRATION: Enregistrement
+  REGISTRATION_RECIPIENT: Destinataire
+  REGISTRATION_RECIPIENTS: Destinataires
+  REGISTRATION_RECIPIENTS_HELP: Les administrateurs qui vont recevoir toutes les demandes d'enregistrement des visiteurs. Laissez cette section vide pour DÉACTIVER le module d'enregistrement. Pour personnaliser les courriels reçus par l'une ou l'autre des parties, copiez le fichier "theme:/languages/admin.json" dans "data:/__THEME__/languages.json" et actualisez le. Faites attention aux mots commençant et se terminant par "__", ils sont remplacés de manière adéquate pendant le cycle de vie des textes.
+  REGISTRATION_STATUS_DESC: Le <strong>statut</strong> doit être activé & au moins un <strong>destinataire</strong> doit être défini pour activer le module d'enregistrement.
+  REGISTRATION_STATUS_HELP: Le STATUT doit être activé & au moins un DESTINATAIRE doit être défini pour activer le module d'enregistrement.
+  REGISTRATION_TEXTS: Textes
+  REGISTRATION_TEXTS_BUTTON: Étiquette du bouton
+  REGISTRATION_TEXTS_HELP: Les textes à utiliser avant et après la procédure d'enregistrement. S'ils sont laissés vides, les textes par défaut seront utilisés.
+  REGISTRATION_TEXTS_EMAIL: Espace réservé au champ de l'e-mail
+  REGISTRATION_TEXTS_NOTIFICATION_ERROR: "Notification: erreur"
+  REGISTRATION_TEXTS_NOTIFICATION_EXISTS: "Notification: existe déjà"
+  REGISTRATION_TEXTS_NOTIFICATION_PROGRESS: "Notification: en cours"
+  REGISTRATION_TEXTS_NOTIFICATION_SUCCESS: "Notification: succès"
+  REGISTRATION_TEXTS_RESPONSE_ERROR: "Enregistrement: erreur"
+  REGISTRATION_TEXTS_RESPONSE_EXISTS: "Enregistrement: existe déjà"
+  REGISTRATION_TEXTS_RESPONSE_SUCCESS: "Inscription: succès"
+  REGISTRATION_TEXTS_UNDO_ERROR: "Annuler l'enregistrement: erreur"
+  REGISTRATION_TEXTS_UNDO_NOT_FOUND: "Annuler l'enregistrement: non trouvé"
+  REGISTRATION_TEXTS_UNDO_SUCCESS: "Annuler l'inscription: succès"
+  RESPONSE_ERROR: Erreur! L'enregistrement a échoué.
+  RESPONSE_EXISTS: Cette adresse e-mail a déjà été enregistrée.
+  RESPONSE_SUCCESS: L'enregistrement a été effectué avec succès.
+  SOCIAL_NETWORK: Réseau social
+  SOCIAL_NETWORKS: Réseaux sociaux
+  SOCIAL_NETWORKS_DESC: Entrez l'URL de la page d'accueil du réseau social concerné.
+  SOCIAL_NETWORKS_ORDER: Ordre des réseaux
+  SOCIAL_NETWORKS_ORDER_HELP: Définir l'ordre des réseaux sociaux. La fonction "glisser-déposer" est disponible ici.
+  SOCIAL_NETWORKS_STATUS_DESC: Le <strong>statut</strong> doit être activé & au moins une <strong>URL</strong> doit être défini pour activer le module d'enregistrement.
+  SOCIAL_NETWORKS_STATUS_HELP: Le STATUT doit être activé & au moins une URL doit être défini pour activer le module d'enregistrement.
+  SOCIAL_NETWORKS_URLS: URLs
+  SOCIAL_NETWORKS_URLS_FACEBOOK: Facebook
+  SOCIAL_NETWORKS_URLS_GITHUB: Github
+  SOCIAL_NETWORKS_URLS_INSTAGRAM: Instagram
+  SOCIAL_NETWORKS_URLS_LINKEDIN: LinkedIn
+  SOCIAL_NETWORKS_URLS_TUMBLR: Tumblr
+  SOCIAL_NETWORKS_URLS_TWITTER: Twitter
+  SOCIAL_NETWORKS_URLS_WHATSAPP: WhatsApp
+  SOCIAL_NETWORKS_URLS_XING: Xing
+  STATUS: Statut
+  TITLE: Titre du site
+  TITLE_DESC: Le titre du site défini dans la <a href="../config/site" target="_blank">configuration</a> doit-il être accessible dans le frontend ?
+  TITLE_HELP: Le titre du site défini dans la configuration doit-il être accessible dans le frontend ?
+  

@@ -1,0 +1,131 @@
+{#
+	@description this script is used to program the theme macros
+	@since PM (23.12.2020)
+	{% import _self as macros %}
+#}
+
+{#
+	@description this macro is used to generate
+	@see https://learn.getgrav.org/17/themes/twig-tags-filters-functions/functions#random-string
+	@see https://learn.getgrav.org/17/themes/twig-tags-filters-functions/functions#of-type
+	@since PM (08.03.2021) standalone
+	@param {string} snippets
+	@param {string} key1 the cookies key
+	@param {string} key2 the secondary key
+#}
+{% macro cookies(snippets, prefix, key1, key2) %}
+	{% if snippets %}{# essential #}
+		{{ prefix }}
+		<section class="modal-body">
+			<h4 class="{{ key1 }}-title">{{ (key2 ~'_title')|tapmorphLabelC }}</h4>
+			<p class="{{ key1 }}-info">{{ (key2 ~'_content')|tapmorphLabelC }}</p>
+			<div class="{{ key1 }}-footer">
+				{% if of_type(snippets, 'string') %}
+					<input 
+						type="checkbox" 
+						id="{{ key1 }}_secondary_{{ key2 }}" 
+						class="{{ key1 }}-toggler" 
+						name="{{ key1 }}[{{ key2 }}]" 
+						value="{{ random_string(10) }}"
+						checked 
+					>
+				{% else %}{# essential #}
+					<input type="hidden" name="{{ key1 }}[{{ key2 }}]" value="{{ random_string(10) }}">
+					<input 
+						type="checkbox" 
+						id="{{ key1 }}_secondary_{{ key2 }}" 
+						class="{{ key1 }}-toggler" 
+						checked disabled
+					>
+				{% endif %}
+				<span>{{ 'buttons_selection_no'|tapmorphLabelC }}</span>
+				<label for="{{ key1 }}_secondary_{{ key2 }}" class="icon-toggle-off {{ key1 }}-toggler {{ key1 }}-toggler-off"></label>
+				<label for="{{ key1 }}_secondary_{{ key2 }}" class="icon-toggle-on {{ key1 }}-toggler {{ key1 }}-toggler-on"></label>
+				<span>{{ 'buttons_selection_yes'|tapmorphLabelC }}</span>
+			</div>
+		</section>
+	{% endif %}
+{% endmacro %}
+
+{#
+	@description this macro is used generate the logo image snippet
+	@since PM (22.12.2020) standalone
+	@param {THEME} theme
+	@param {config} config
+#}
+{% macro logo(theme, config) %}
+	{% if theme.logo %}
+		{# 
+			@see https://twig.symfony.com/doc/3.x/tags/for.html#iterating-over-keys
+			{% set logo = (theme.logo|first).url %} @since PM (23.12.2020) has stopped working since the latest grav update
+		#}
+		{% set logo = theme.logo|first %}
+		<img src="{{ logo|tapmorphResource }}" alt="{{ config.site.title }}: {{ logo.name }}">
+	{% else %}
+		<img class="{{ SLUG }}" src="{{ url('theme://images/logo.png') }}" alt="{{ config.site.title }}: LOGO">
+	{% endif %}
+{% endmacro %}
+
+{#
+	@macro navList
+	@see _self._navList
+#}
+{% macro navList(pages, class = '') %}
+	<ul class="navigation navigation-list {{ class }}">
+		{{ _self._navList(pages) }}
+	</ul>
+{% endmacro %}
+
+{#
+	@macro navTree
+	@see _self._navTree
+#}
+{% macro navTree(pages, class = '') %}
+	<ul class="navigation navigation-tree {{ class }}">
+		{{ _self._navTree(pages) }}
+	</ul>
+{% endmacro %}
+
+{#
+	@macro _navList
+	@private
+	@recursive
+	@description this macro is used generate the menu snippet with the list format
+	@source @theme quark
+	@since PM (23.12.2020)
+	@param {pages} pages
+#}
+{% macro _navList(pages, level = 1) %}
+	{% for page in pages.children.visible %}
+		{% if page.template|lower != 'subscribers' %}
+			<li class="navigation-item navigation-level-{{ level }} {{ page.active ? 'active' : '' }}">
+				<a href="{{ page.url }}">{{ page.menu }}</a>
+			</li>
+		{% endif %}
+		
+		{% if page.children.visible.count > 0 %} {# the next level #}
+			{{ _self._navList(page, level + 1) }}
+		{% endif %}
+	{% endfor %}
+{% endmacro %}
+
+{#
+	@macro _navTree
+	@private
+	@recursive
+	@description this macro is used generate the menu snippet with the tree format
+	@source @theme quark
+	@since PM (23.12.2020) move to this script & improved
+	@param {pages} pages
+#}
+{% macro _navTree(pages, level = 1) %}
+	{% for page in pages.children.visible %}
+		<li class="navigation-item navigation-level-{{ level }} {{ (page.active or page.activeChild) ? 'active' : '' }}">
+			<a href="{{ page.url }}">{{ page.menu }}</a>
+
+			{% if page.children.visible.count > 0 %} {# the next level #}
+				<ul>{{ _self._navTree(page, level + 1) }}</ul>
+			{% endif %}
+		</li>
+	{% endfor %}
+{% endmacro %}

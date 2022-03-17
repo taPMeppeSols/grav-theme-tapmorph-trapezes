@@ -1,0 +1,49 @@
+<div id="{{ prefix }}_container" class="{{ prefix }}">
+	{% for i, address in addresses %}
+		<div class="{{ prefix }}-cell">
+			<div class="{{ prefix }}-switcher">
+				{% set id = regex_replace(address.email, "/\\W/", '_') %}
+				{# `\\W+` is not used on purpose #}
+				<input id="checkbox_email_address_{{ id }}_{{ i }}" type="checkbox" class="switcher-icon" data-{{ prefix }}="{{ address.email }}">
+				<label for="checkbox_email_address_{{ id }}_{{ i }}" class="switcher">
+					<i class="icon-square-o"></i>
+					<i class="icon-check-square-o"></i>
+				</label>
+			</div>
+			<div class="{{ prefix }}-info">
+				<div><a class="button-link" href="mailto:{{ address.email }}?subject={{ title }}">{{ address.email }}</a></div>
+				<div>{{ address.date }}</div>
+			</div>
+		</div>
+	{% endfor %}
+</div>
+{% autoescape false %}
+	<div>
+		<a 
+			id="{{ prefix }}_selector" 
+			class="btn button floater active {{ prefix }}-buttons"
+			title="{{ tapmorphText('SUBSCRIBERS_SELECT') }}"
+			data-text="{{ tapmorphText('SUBSCRIBERS_SELECT_ALERT') }}"
+		>
+			<i class="icon-square-o"></i>
+			<i class="icon-check-square-o"></i>
+		</a>
+		<a 
+			id="{{ prefix }}_networker" 
+			class="btn button floater active {{ prefix }}-buttons"
+			title=" {{ tapmorphText('SUBSCRIBERS_NETWORK') }} "
+			data-text="{{ title }}"
+			{# target="_blank" #}
+		>
+			<i class="icon-envelope-o"></i>
+		</a>
+		<a 
+			id="{{ prefix }}_remover" 
+			class="btn button floater active {{ prefix }}-buttons"
+			title="{{ tapmorphText('SUBSCRIBERS_REMOVE') }}"
+			data-text='{{ remove }}'
+		>
+			<i class="icon-trash"></i>
+		</a>
+	</div>
+{% endautoescape %}

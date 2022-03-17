@@ -1,0 +1,71 @@
+{% autoescape false %}
+	{% if image %}
+	<section id="{{ id }}" class="{{ class }}" style='background-image:url("{{ image }}")'>
+		<div class="mask"></div>
+	{% else %}
+	<section id="{{ id }}" class="{{ class }}">
+	{% endif %}
+
+		{% set target = '#' ~ id ~ '>div.container' %}
+		<div class="container {{ mark }} slide {{ fade }}" data-bs-ride="{{ mark }}" {{ touch }} {{ interval }}>
+			{% if indicators %}
+				<ol class="{{ mark }}-indicators {{ key }}-indicators">
+					{% for indicator in indicators %}
+						<li 
+							data-bs-target="{{ target }}" 
+							data-bs-slide-to="{{ indicator.i }}" 
+							aria-label="{{ tapmorphText('TWIG_ARIA_SLIDE') }} {{ indicator.i }}" 
+							aria-current="{{ indicator.current }}" 
+							class="{{ indicator.active }}"
+						></li>
+					{% endfor %}
+				</ol>
+			{% endif %}
+			<div class="{{ mark }}-inner">
+				{% for item in items %}
+					<div class="{{ mark }}-item {{ item.active }}" {{ item.interval }}>
+						<div class="{{ row }}">
+							{% if item.block %}
+								<div class="{{ item.class_block }}">{{ item.content }}</div>
+							{% elseif item.image %}
+								{% if item.content %}
+									<div class="{{ item.class_image[0] }}">
+										<img loading="lazy" src="{{ item.image }}" alt="!?{{ item.title }}?!">
+									</div>
+									<div class="{{ item.class_text }}">
+										<h2>{{ item.title }}</h2>
+										<p>{{ item.content }}</p>
+									</div>
+									{% if item.class_image[1] %}
+										<div class="{{ item.class_image[1] }}">
+											<img loading="lazy" src="{{ item.image }}" alt="!?{{ item.title }}?!">
+										</div>
+									{% endif %}
+								{% else %} {# image only #}
+									<div class="{{ item.class_block }}">
+										<img loading="lazy" src="{{ item.image }}" alt="!?{{ item.title }}?!">
+									</div>
+								{% endif %}
+							{% else %}
+								<div class="{{ item.class_center }}">
+									<h2>{{ item.title }}</h2>
+									<p>{{ item.content }}</p>
+								</div>
+							{% endif %}
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+			{% if controls %}
+				<a class="{{ mark }}-control-prev {{ key }}-control" href="{{ target }}" role="button" data-bs-target="{{ target }}" data-bs-slide="prev">
+					<span class="icon-chevron-left" aria-hidden="true"></span>
+					<span class="visually-hidden">{{ tapmorphText('TWIG_ARIA_PREVIOUS') }}</span>
+				</a>
+				<a class="{{ mark }}-control-next {{ key }}-control" href="{{ target }}" role="button" data-bs-target="{{ target }}" data-bs-slide="next">
+					<span class="icon-chevron-right" aria-hidden="true"></span>
+					<span class="visually-hidden">{{ tapmorphText('TWIG_ARIA_NEXT') }}</span>
+				</a>
+			{% endif %}
+		</div>
+	</section>	
+{% endautoescape %}

@@ -1,0 +1,255 @@
+THEME_TAPMORPH_TRAPEZES:
+  # a 
+  # b 
+  # c
+  COOKIES: Head cookies
+  COOKIES_DESC: The image that will appear at the top of the cookies box.
+  COOKIES_SNIPPETS_ESSENTIAL: "Cookies: Snippets: essential"
+  COOKIES_SNIPPETS_ESSENTIAL_DESC: Enter the third party snippets (CSS, JS) that you deem <em style="color:#f8444e">essential</em> for your website.<br>This field usually remains empty.
+  COOKIES_SNIPPETS_ESSENTIAL_HELP: Enter the third party snippets (CSS, JS) that you deem ESSENTIAL for your website.<br>This field usually remains empty.
+  COOKIES_SNIPPETS_MARKETING: "Cookies: Snippets: marketing"
+  COOKIES_SNIPPETS_MARKETING_DESC: Enter the third party snippets (CSS, JS) that are relevant for the <em style="color:#f8444e">marketing</em> of your website.
+  COOKIES_SNIPPETS_MARKETING_HELP: Enter the third party snippets (CSS, JS) that are relevant for the MARKETING of your website.
+  COOKIES_SNIPPETS_OTHERS: "Cookies: Snippets: others"
+  COOKIES_SNIPPETS_OTHERS_DESC: Enter the third party snippets (CSS, JS) that <em style="color:#f8444e">couldn't</em> be placed in none of the above fields.
+  COOKIES_SNIPPETS_OTHERS_HELP: Enter the third party snippets (CSS, JS) that COULDN'T be placed in none of the above fields.
+  COOKIES_SNIPPETS_STATISTICS: "Cookies: Snippets: statistics"
+  COOKIES_SNIPPETS_STATISTICS_DESC: Enter the third party snippets (CSS, JS) that are relevant for the <em style="color:#f8444e">statistical</em> analysis of your website.
+  COOKIES_SNIPPETS_STATISTICS_HELP: Enter the third party snippets (CSS, JS) that are relevant for the STATISTICAL analysis of your website.
+  COPYRIGHT: Copyright
+  COPYRIGHT_DESC: The copyright text. The following keys are available.<br>- <code>[copy]</code> for the copyright sign.<br>- <code>[year]</code> for the current year.<br>- <code>[title]</code> for the site title.
+  COPYRIGHT_HELP: The copyright text. The following keys are available. - [copy] for the copyright sign. - [year] for the current year. - [title] for the site title.
+  # d
+  DELETION_ERROR: Error! The email address couldn't be removed from the mailing list.
+  DELETION_NOT_FOUND: The email address could not be found in the mailing list.
+  DELETION_SUCCESS: The email address has been successfully removed from the mailing list.
+  DESIGN: Design
+  DESIGN_COLOR: Color 
+  DESIGN_COLORS: Colors
+  DESIGN_COLORS_ADDITIONAL: Additional colors
+  DESIGN_COLORS_ADDITIONAL_CLASS_SUFFIX: Class suffix
+  DESIGN_COLORS_ADDITIONAL_CLASS_SUFFIX_DESC: "This <em style='color:#f8444e'>suffix</em> can be used as class in the <strong>twig</strong> <code>trapeze</code>- functions.<br>The CSS query will be the following: <code>body #content &gt; .trapeze.trapeze-additional-xxx</code>."
+  DESIGN_COLORS_ADDITIONAL_CLASS_SUFFIX_HELP: "This SUFFIX can be used as class in the TWIG [trapeze]- functions. The CSS query will be the following: [body #content > .trapeze.trapeze-additional-xxx]."
+  DESIGN_COLORS_ADDITIONAL_HELP: Use this field to define additional TRAPEZE background colors
+  DESIGN_COLORS_ADDITIONAL_VALUE_DESC: The background color of the trapezes. <em style="color:#f8444e">Only</em> the hexadecimal system can be used here.
+  DESIGN_COLORS_ADDITIONAL_VALUE_HELP: The background color of the trapezes. ONLY the hexadecimal system can be used here.
+  DESIGN_COLORS_BUTTON: Color (button)
+  DESIGN_COLORS_BUTTON_DESC: Enter the standard button background color. All color system supported by CSS can be used here.
+  DESIGN_COLORS_LEFT: Color (trapeze left)
+  DESIGN_COLORS_RIGHT: Color (trapeze right)
+  DESIGN_COLORS_TEXT: Color (text)
+  DESIGN_COLORS_TEXT_DESC: Enter the standard text color. All color system supported by CSS can be used here.
+  DESIGN_COLORS_TRAPEZE_DESC: Enter the standard trapeze background color. <em style="color:#f8444e">Only</em> the hexadecimal system can be used here.
+  DESIGN_COLORS_TRAPEZE_HELP: Enter the standard trapeze background color. ONLY the hexadecimal system can be used here.
+  DESIGN_GENERAL: General
+  DESIGN_GENERAL_IMAGE_POSITION: Images position
+  DESIGN_GENERAL_IMAGE_POSITION_DESC: The <strong>vertical</strong> position of the image within the trapezes.
+  DESIGN_GENERAL_IMAGE_POSITION_VALUE_BOTTOM: Bottom
+  DESIGN_GENERAL_IMAGE_POSITION_VALUE_MIDDLE: Middle
+  DESIGN_GENERAL_IMAGE_POSITION_VALUE_TOP: Top
+  DESIGN_GENERAL_IMAGE_POSITION_TITLE: The VERTICAL position of the image within the trapezes.
+  DESIGN_GENERAL_IMAGE_RADIUS: Images border radius
+  DESIGN_GENERAL_IMAGE_RADIUS_DESC: The border radius of the image in the trapazes.
+  DESIGN_GENERAL_ORIENTATION: Orientation
+  DESIGN_GENERAL_ORIENTATION_DESC: Should the page start with a <span style="color:#f8444e">left</span> trapeze or a <span style="color:#f8444e">right</span> one?
+  DESIGN_GENERAL_ORIENTATION_VALUE_LEFT: Left
+  DESIGN_GENERAL_ORIENTATION_VALUE_RIGHT: Right
+  DESIGN_GENERAL_ORIENTATION_TITLE: Should the page start with a LEFT trapeze or a RIGHT one?
+  DESIGN_GENERAL_COLUMNS: Repartition
+  DESIGN_GENERAL_COLUMNS_DESC: The repartition of the image & text blocks within the trapezes.
+  DESIGN_GENERAL_COLUMNS_VALUE_5050: Text 50% & image 50%
+  DESIGN_GENERAL_COLUMNS_VALUE_6040: Text 60% & image 40%
+  DESIGN_GENERAL_COLUMNS_VALUE_7030: Text 70% & image 30%
+  DESIGN_GENERAL_TEXT: Text orientation
+  DESIGN_GENERAL_TEXT_DESC: Check this if the paragraphs should be <span style="color:#f8444e">justified</span> and or the title & anchors should be <span style="color:#f8444e">centered</span>.
+  DESIGN_GENERAL_TEXT_VALUE_DEFAULT: Default
+  DESIGN_GENERAL_TEXT_VALUE_JUSTIFY: Justify
+  DESIGN_GENERAL_TEXT_VALUE_JUSTIFY_CENTER: Justify & center
+  DESIGN_GENERAL_TEXT_TITLE: Check this if the paragraphs should be JUSTIFIED and or the title & anchors should be CENTERED.
+  DESIGN_OTHERS: Others
+  DESIGN_OTHERS_CUSTOM_CSS: Custom CSS
+  DESIGN_OTHERS_CUSTOM_CSS_DESC: The custom/additional CSS code that will be appended to the standard CSS code.
+  DESIGN_STATUS_DESC: The <strong>status</strong> must be enabled in order to activate the design module.
+  DESIGN_STATUS_HELP: The STATUS must be enabled in order to activate the design module.
+  # e
+  ERROR: Error message
+  # f
+  FAVICON: Favicon
+  FAVICON_DESC: Recommended <strong>512x512</strong> pixels.<br>If left empty, the default favicon will be used.
+  FAVICON_HELP: Recommended 512x512 pixels. If left empty, the default favicon will be used.
+  FOOT: Foot background
+  FOOT_DESC: If left empty, the default foot background will be used.
+  # g
+  # h
+  HEAD: Head background
+  HEAD_DESC: It can be overwriten by the <em style="color:#f8444e">first</em> image of the given page.<br>If left empty, the default head background will be used.
+  HEAD_HELP: It can be overwriten by the FIRST image of the given page.If left empty, the default head background will be used.
+  # i
+  ILLUSTRATIONS: Illustrations
+  INTRODUCTION: Introduction
+  # j
+  # k
+  # j
+  LABELS: Labels
+  LABELS_ADMIN_TEXTS: Labels
+  LABELS_ADMIN_TEXTS_HELP: The labels appearing in the frontend. If left empty the default labels|texts will be used.
+  LABELS_TEXTS_DELETION_ERROR: The email couldn't be removed from the mailing list.
+  LABELS_TEXTS_COOKIES_BUTTONS_ACCEPT: Accept all
+  LABELS_TEXTS_COOKIES_BUTTONS_ACCEPT_ADMIN: <strong>Cookies:</strong> accept all
+  LABELS_TEXTS_COOKIES_BUTTONS_AGREEMENT: I agree
+  LABELS_TEXTS_COOKIES_BUTTONS_AGREEMENT_ADMIN: <strong>Cookies:</strong> I agree
+  LABELS_TEXTS_COOKIES_BUTTONS_MORE_INFO: More info
+  LABELS_TEXTS_COOKIES_BUTTONS_MORE_INFO_ADMIN: <strong>Cookies:</strong> more info
+  LABELS_TEXTS_COOKIES_BUTTONS_MORE_INFO_DESC: The label of the anchor leading to the site privacy policy.
+  LABELS_TEXTS_COOKIES_BUTTONS_SELECTION_CONFIRM: Confirm selection
+  LABELS_TEXTS_COOKIES_BUTTONS_SELECTION_CONFIRM_ADMIN: <strong>Cookies:</strong> confirm selection
+  LABELS_TEXTS_COOKIES_BUTTONS_SELECTION_MANUAL: Manual selection
+  LABELS_TEXTS_COOKIES_BUTTONS_SELECTION_MANUAL_ADMIN: <strong>Cookies:</strong> Manual selection
+  LABELS_TEXTS_COOKIES_BUTTONS_SELECTION_NO: No
+  LABELS_TEXTS_COOKIES_BUTTONS_SELECTION_NO_ADMIN: <strong>Cookies:</strong> no
+  LABELS_TEXTS_COOKIES_BUTTONS_SELECTION_YES: Yes
+  LABELS_TEXTS_COOKIES_BUTTONS_SELECTION_YES_ADMIN: <strong>Cookies:</strong> yes
+  LABELS_TEXTS_COOKIES_ESSENTIAL_CONTENT: Essential cookies enable basic functions and are necessary for the proper functioning of the website. Therefore they cannot be deselected by you. We use one cookie to generate a unique session ID and another cookie to store the settings you select here in the cookie selection.
+  LABELS_TEXTS_COOKIES_ESSENTIAL_CONTENT_ADMIN: <strong>Cookies:</strong> essential content
+  LABELS_TEXTS_COOKIES_ESSENTIAL_TITLE: Essential
+  LABELS_TEXTS_COOKIES_ESSENTIAL_TITLE_ADMIN: <strong>Cookies:</strong> essential title
+  LABELS_TEXTS_COOKIES_INTRO_CONTENT: Here you can find the different categories of cookies we use. These include the essential cookies that are necessary for the operation of the website and therefore cannot be deselected. But you can decide for yourself if you want to allow cookies for "Statistics" and "Marketing". Further information about the cookies used can be found under the link below.
+  LABELS_TEXTS_COOKIES_INTRO_CONTENT_ADMIN: <strong>Cookies:</strong> introduction text
+  LABELS_TEXTS_COOKIES_INTRO_TITLE: Privacy settings (cookies selection)
+  LABELS_TEXTS_COOKIES_INTRO_TITLE_ADMIN: <strong>Cookies:</strong> title
+  LABELS_TEXTS_COOKIES_INTRO_TITLE_DESC: Privacy settings (cookies selection)
+  LABELS_TEXTS_COOKIES_MARKETING_CONTENT: These cookies also originate from third parties and record your visit to our website in order to analyse your interests and to study how successful our advertising is. We can also make your website visit more relevant to you and provide our website with content tailored to you. This includes the Google Ads Conversion Tracker and the Facebook Pixel.
+  LABELS_TEXTS_COOKIES_MARKETING_CONTENT_ADMIN: <strong>Cookies:</strong> marketing content
+  LABELS_TEXTS_COOKIES_MARKETING_TITLE: Marketing
+  LABELS_TEXTS_COOKIES_MARKETING_TITLE_ADMIN: <strong>Cookies:</strong> marketing title
+  LABELS_TEXTS_COOKIES_OTHERS_CONTENT: These cookies are neither for statistical- nor for marketing- purposes.
+  LABELS_TEXTS_COOKIES_OTHERS_CONTENT_ADMIN: <strong>Cookies:</strong> others content
+  LABELS_TEXTS_COOKIES_OTHERS_TITLE: Others
+  LABELS_TEXTS_COOKIES_OTHERS_TITLE_ADMIN: <strong>Cookies:</strong> others title
+  LABELS_TEXTS_COOKIES_STATISTICS_CONTENT: These cookies collect statistics. This information helps us to understand how we can further optimize our website. We use the web analysis tool Matomo as well as Google Analytics.
+  LABELS_TEXTS_COOKIES_STATISTICS_CONTENT_ADMIN: <strong>Cookies:</strong> statistics content
+  LABELS_TEXTS_COOKIES_STATISTICS_TITLE: Statistics
+  LABELS_TEXTS_COOKIES_STATISTICS_TITLE_ADMIN: <strong>Cookies:</strong> statistics title
+  LABELS_TEXTS_DELETION_ERROR_ADMIN: <strong>Undo registration:</strong> error
+  LABELS_TEXTS_DELETION_NOT_FOUND: The email is no longer in the mailing list.
+  LABELS_TEXTS_DELETION_NOT_FOUND_ADMIN: <strong>Undo registration:</strong> not found
+  LABELS_TEXTS_DELETION_SUCCESS: The email has been successfully removed from the mailing list.
+  LABELS_TEXTS_DELETION_SUCCESS_ADMIN: <strong>Undo registration:</strong> success
+  LABELS_TEXTS_EMAIL: Email address
+  LABELS_TEXTS_ERROR: Error
+  LABELS_TEXTS_ERROR_MESSAGE: Error message
+  LABELS_TEXTS_ERROR_MESSAGE_DESC: "If left empty, the default error icons will be used.<br><strong>Only</strong> the following HTML tags are allowed: <code>&lt;a&gt;</code>, <code>&lt;br&gt;</code>, <code>&lt;span&gt;</code>."
+  LABELS_TEXTS_ERROR_MESSAGE_HELP: If left empty, the default error icons will be used.
+  LABELS_TEXTS_EXPLORE: Explore
+  LABELS_TEXTS_MENU: Menu
+  LABELS_TEXTS_NAME: Name
+  LABELS_TEXTS_NEWSLETTER: Newsletter
+  LABELS_TEXTS_NOTIFICATION_ERROR: The notification has failed.
+  LABELS_TEXTS_NOTIFICATION_ERROR_ADMIN: <strong>Notification:</strong> error
+  LABELS_TEXTS_NOTIFICATION_EXISTS: This email has already been registered.
+  LABELS_TEXTS_NOTIFICATION_EXISTS_ADMIN: <strong>Notification:</strong> already exists
+  LABELS_TEXTS_NOTIFICATION_PROGRESS: The notification is in progress.
+  LABELS_TEXTS_NOTIFICATION_PROGRESS_ADMIN: <strong>Notification:</strong> in progress
+  LABELS_TEXTS_NOTIFICATION_SUCCESS: The notification was successful. Check your inbox.
+  LABELS_TEXTS_NOTIFICATION_SUCCESS_ADMIN: <strong>Notification:</strong> success
+  LABELS_TEXTS_PRIVACY_POLICY: I have read & I agree with the [privacy policy].
+  LABELS_TEXTS_PRIVACY_POLICY_ADMIN: Privacy policy
+  LABELS_TEXTS_PRIVACY_POLICY_DESC: Use the square brackets <code>[ ... ]</code> to mark the term/word in the title that should be used as the clickable element to open/view the privacy policy. The privacy policy can be directly accessed <a href="/?privacy-policy=1" target="_blank">here</a>.<br><strong>Alternatively to the inline notice</strong> a <em style="color:#f8444e">page</em> in which the content is located can be used.
+  LABELS_TEXTS_PRIVACY_POLICY_HELP: "Use the square brackets [ ... ] to mark the term/word in the title that should be used as the clickable element to open/view the privacy policy. The privacy policy can be directly accessed here: _HOME_URL_?privacy-policy=1 ."
+  LABELS_TEXTS_REGISTER: Register
+  LABELS_TEXTS_RESPONSE_ERROR: The registration has failed.<br>Contact the administration.
+  LABELS_TEXTS_RESPONSE_ERROR_ADMIN: <strong>Registration:</strong> error
+  LABELS_TEXTS_RESPONSE_EXISTS: This email has already been registered.
+  LABELS_TEXTS_RESPONSE_EXISTS_ADMIN: <strong>Registration:</strong> already exists
+  LABELS_TEXTS_RESPONSE_SUCCESS: The registration was successful.
+  LABELS_TEXTS_RESPONSE_SUCCESS_ADMIN: <strong>Registration:</strong> success
+  LABELS_TEXTS_SOCIAL_NETWORKS: Social networks
+  LABELS_TEXTS_SUBMISSION_ERROR: The form submission has failed.
+  LABELS_TEXTS_SUBMISSION_ERROR_ADMIN: "<strong>Form: submission:</strong> error"
+  LABELS_TEXTS_SUBMISSION_ERROR_DESC: The <strong>default</strong> text in case of an unsuccessful form submission.
+  LABELS_TEXTS_SUBMISSION_PROGRESS: The form submission is in progress.
+  LABELS_TEXTS_SUBMISSION_PROGRESS_ADMIN: "<strong>Form: submission:</strong> in progress"
+  LABELS_TEXTS_SUBMISSION_PROGRESS_DESC: The text that is displayed during the form submission.
+  LABELS_TEXTS_SUBMISSION_SUCCESS: The form submission was successful.
+  LABELS_TEXTS_SUBMISSION_SUCCESS_ADMIN: "<strong>Form: submission:</strong> success"
+  LABELS_TEXTS_SUBMISSION_SUCCESS_DESC: The <strong>default</strong> text in case of a successful form submission.<br>It can be overwritten by the <code>form > process > message</code>.
+  LEGAL_AFFAIRS: Legal affairs & trackers
+  LOGO: Logo
+  LOGO_DESC: If left empty, the default logo will be used.
+  # m
+  # n
+  NOTIFICATION_ERROR: Error! Something went wrong.
+  NOTIFICATION_EXISTS: This email address has already been registered.
+  NOTIFICATION_PROGRESS: In progress ...
+  NOTIFICATION_SUCCESS: Success! Check your inbox.
+  # o
+  # p
+  PAGE_DESC: <strong>Alternatively to the inline notice</strong> a <em style="color:#f8444e">page</em> in which the content is located can be used.
+  PAGE_IMPRINT: Imprint (standalone page)
+  PAGE_IMPRINT_INLINE: Imprint (inline)
+  PAGE_IMPRINT_INLINE_HELP: The text that will appear at the foot of the site.
+  PAGE_LANGUAGE: Language
+  PAGE_LANGUAGE_HELP: Select the default language to enable the content in all languages.
+  PAGE_PRIVACY_POLICY: Privacy policy (standalone page)
+  PAGE_PRIVACY_POLICY_DESC: Use the square brackets <code>[ ... ]</code> to mark the term/word in the title that should be used as the clickable element to open/view the privacy policy.
+  PAGE_PRIVACY_POLICY_HELP: "Use the square brackets [ ... ] to mark the term/word in the title that should be used as the clickable element to open/view the privacy policy: _HOME_URL_?privacy-policy=1 ."
+  PAGE_PRIVACY_POLICY_INLINE: Privacy policy (inline)
+  PAGE_PRIVACY_POLICY_INLINE_HELP: The text that will appear in the registration form. Use the square brackets [ ... ] to mark the term/word in the title that should be used as the clickable element to open/view the privacy policy.
+  PAGE_TITLE: Title
+  # q
+  # r
+  REGISTRATION: Registration
+  REGISTRATION_RECIPIENT: Recipient
+  REGISTRATION_RECIPIENTS: Recipients
+  REGISTRATION_RECIPIENTS_HELP: The administrators that are going to receive all the visitor registration requests. Leave this section empty to DEACTIVATE the registration module. To customise the emails received by either party, copy the file 'theme:/languages/admin.json' to 'data:/__THEME__/languages.json' and overwrite it. Be aware of words starting & ending with '__', they are placeholders replaced adequately during the lifecycle of the texts.
+  REGISTRATION_STATUS_DESC: The <strong>status</strong> must be enabled & at least one <strong>recipient</strong> must be set in order to activate the registration module.
+  REGISTRATION_STATUS_HELP: The STATUS must be enabled & at least one RECIPIENT must be set in order to activate the registration module.
+  RESPONSE_ERROR: Error! The registration has failed.
+  RESPONSE_EXISTS: This email address has already been registered.
+  RESPONSE_SUCCESS: The registration was successful.
+  # s
+  SELECT: '-- Select --'
+  SOCIAL_NETWORK: Social network
+  SOCIAL_NETWORKS: Social networks
+  SOCIAL_NETWORKS_DESC: Enter the URL of the landing page on the respective social network.
+  SOCIAL_NETWORKS_ORDER: Order of the networks
+  SOCIAL_NETWORKS_ORDER_HELP: Set the order of the social networks. The 'drag & drop' function is available here.
+  SOCIAL_NETWORKS_STATUS_DESC: The <strong>status</strong> must be enabled & at least one <strong>URL</strong> must be set in order to activate the social networks module.
+  SOCIAL_NETWORKS_STATUS_HELP: The STATUS must be enabled & at least one URL must be set in order to activate the social networks module.
+  SOCIAL_NETWORKS_URLS: URLs
+  SOCIAL_NETWORKS_URLS_FACEBOOK: Facebook
+  SOCIAL_NETWORKS_URLS_GITHUB: Github
+  SOCIAL_NETWORKS_URLS_INSTAGRAM: Instagram
+  SOCIAL_NETWORKS_URLS_LINKEDIN: LinkedIn
+  SOCIAL_NETWORKS_URLS_TUMBLR: Tumblr
+  SOCIAL_NETWORKS_URLS_TWITTER: Twitter
+  SOCIAL_NETWORKS_URLS_WHATSAPP: WhatsApp
+  SOCIAL_NETWORKS_URLS_XING: Xing
+  STATUS: Status
+  SUBSCRIBERS_ERROR_ACCESS_RIGHTS: You do not have sufficient rights to access this page.
+  SUBSCRIBERS_ERROR_LOGIN: Something went wrong!
+  SUBSCRIBERS_ERROR_NONE: So far there are no subscribers.
+  SUBSCRIBERS_ERROR_RECIPIENT: No recipient has been set in the administration area.
+  SUBSCRIBERS_ERROR_REMOVE: "The selected addresses couldn't be removed. Report the problem in the support tool: https://github.com/taPMeppeSols/grav-theme-tapmorph-trapezes/issues ."
+  SUBSCRIBERS_LOGIN_PASSWORD: Password
+  SUBSCRIBERS_LOGIN_USERNAME: Username or Email
+  SUBSCRIBERS_LOGIN_SUBMIT: Sign in
+  SUBSCRIBERS_NETWORK: Click to send a bulk message to all selected addresses.
+  SUBSCRIBERS_REMOVE: Click to remove all selected addresses from the list.
+  SUBSCRIBERS_REMOVE_CONFIRM: You are about to remove all selected addresses from the list. This action CAN NOT be undone.
+  SUBSCRIBERS_REMOVE_SUCCESS: The selected addresses have been removed from the list.
+  SUBSCRIBERS_SELECT: Click to select all addresses or undo the selection.
+  SUBSCRIBERS_SELECT_ALERT: No addresses have been selected.
+  # t
+  TITLE: Site title
+  TITLE_DESC: Should the site title set in the <a href="../config/site" target="_blank">configuration</a> be accessible in the frontend?
+  TITLE_HELP: Should the site title set in the configuration be accessible in the frontend?
+  TWIG_ARIA_NEXT: Next
+  TWIG_ARIA_PREVIOUS: Previous
+  TWIG_ARIA_SLIDE: Slide
+  # u
+  # v
+  # w
+  # x
+  # y
+  # z

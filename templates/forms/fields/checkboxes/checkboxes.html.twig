@@ -1,0 +1,56 @@
+{#
+	@since PM (14.03.2021)
+	@description this script is used to overwrite the plugin:forms checkboxes field
+	@source user\plugins\form\templates\forms\fields\checkboxes\checkboxes.html.twig
+	@source user\themes\quark\templates\forms\fields\checkboxes\checkboxes.html.twig
+#}
+{% extends "forms/field.html.twig" %}
+
+{% set originalValue = value %}
+{% set value = (value is null ? field.default : value) %}
+{% if field.use == 'keys' and field.default %}
+	{% set value = field.default|merge(value) %}
+{% endif %}
+
+{% block global_attributes %}
+	{{ parent() }}
+	data-grav-keys="{{ field.use == 'keys' ? 'true' : 'false' }}"
+	data-grav-field-name="{{ (scope ~ field.name)|fieldName }}"
+{% endblock %}
+
+{% block input %}
+	{% for key, text in field.options %}
+		{% set id = field.id|default(field.name) ~'-'~ key %}
+		{% set name = field.use == 'keys' ? key : id %}
+		{% set val = field.use == 'keys' ? '1' : key %}
+		{% set checked = (field.use == 'keys' ? value[key] : key in value) %}
+		{% set help = (key in field.help_options|keys ? field.help_options[key] : false) %}
+
+		<div class="{{SLUG}}-row checkboxes {{ form_field_wrapper_classes }} {{ field.wrapper_classes }}">
+			<div class="col-1">
+				<input 
+					type="checkbox"
+					id="{{ id|e }}"
+					value="{{ val|e }}"
+					name="{{ (scope ~ field.name)|fieldName ~'['~ name ~']' }}"
+					class="switcher-icon {% if field.classes is defined %}{{ field.classes }}{% endif %}"
+					{% if checked %}checked="checked"{% endif %}
+					{% if field.disabled or isDisabledToggleable %}disabled="disabled"{% endif %}
+				>
+				<label for="{{ id|e }}" class="switcher">
+					<i class="icon-square-o"></i>
+					<i class="icon-check-square-o"></i>
+				</label>
+			</div>
+			<div class="col">
+				<label class="{{ form_field_checkbox_classes }}" for="{{ id|e }}">
+					{% if help %}
+						<span class="hint--bottom" data-hint="{{ help|t|e('html_attr') }}">{{ text|t|e }}</span>
+					{% else %}
+						{{ text|t|e }}
+					{% endif %}
+				</label>
+			</div>
+		</div>
+	{% endfor %}
+{% endblock %}

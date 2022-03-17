@@ -1,0 +1,28 @@
+{
+	"name": "tapmeppe/tapmorph-trapezes",
+	"description": "taPMORph trapezes is an adaptation of the free template <a href='https://html5up.net/solid-state' target='_blank'>solid state</a> in GravCMS.",
+	"version": "1.0.0",
+	"homepage": "https://tapmeppe.solutions",
+	"authors": [
+		{
+			"name": "Patrick Meppe",
+			"email": "management@tapmeppe.com",
+			"role": "Owner"
+		}
+	],
+	"keywords": [
+		"tapmeppe",
+		"tapmorph",
+		"grav",
+		"theme",
+		"trapezes"
+	],
+	"autoload": {
+		"psr-4": {
+			"Grav\\Theme\\tapmorph\\": "php/classes/"
+		}
+	},
+	"require": {
+		"php": ">=8.0"
+	}
+}

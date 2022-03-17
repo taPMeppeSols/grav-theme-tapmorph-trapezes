@@ -1,0 +1,120 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?b5f69l');
+  src:  url('fonts/icomoon.eot?b5f69l#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?b5f69l') format('truetype'),
+    url('fonts/icomoon.woff?b5f69l') format('woff'),
+    url('fonts/icomoon.svg?b5f69l#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-envelope-o:before {
+  content: "\f003";
+}
+.icon-trash-o:before {
+  content: "\f014";
+}
+.icon-download:before {
+  content: "\f019";
+}
+.icon-check-square-o:before {
+  content: "\f046";
+}
+.icon-chevron-left:before {
+  content: "\f053";
+}
+.icon-chevron-right:before {
+  content: "\f054";
+}
+.icon-chevron-up:before {
+  content: "\f077";
+}
+.icon-chevron-down:before {
+  content: "\f078";
+}
+.icon-sign-in:before {
+  content: "\f090";
+}
+.icon-square-o:before {
+  content: "\f096";
+}
+.icon-twitter:before {
+  content: "\f099";
+}
+.icon-facebook:before {
+  content: "\f09a";
+}
+.icon-facebook-f:before {
+  content: "\f09a";
+}
+.icon-github:before {
+  content: "\f09b";
+}
+.icon-square:before {
+  content: "\f0c8";
+}
+.icon-bars:before {
+  content: "\f0c9";
+}
+.icon-navicon:before {
+  content: "\f0c9";
+}
+.icon-reorder:before {
+  content: "\f0c9";
+}
+.icon-linkedin:before {
+  content: "\f0e1";
+}
+.icon-circle-o:before {
+  content: "\f10c";
+}
+.icon-circle:before {
+  content: "\f111";
+}
+.icon-check-square:before {
+  content: "\f14a";
+}
+.icon-xing:before {
+  content: "\f168";
+}
+.icon-instagram:before {
+  content: "\f16d";
+}
+.icon-tumblr:before {
+  content: "\f173";
+}
+.icon-dot-circle-o:before {
+  content: "\f192";
+}
+.icon-trash:before {
+  content: "\f1f8";
+}
+.icon-toggle-off:before {
+  content: "\f204";
+}
+.icon-toggle-on:before {
+  content: "\f205";
+}
+.icon-whatsapp:before {
+  content: "\f232";
+}
+.icon-envelope-open:before {
+  content: "\f2b6";
+}

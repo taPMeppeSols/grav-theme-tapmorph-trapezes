@@ -1,0 +1,131 @@
+//out: false, main: style.less
+/**
+	@since PM (05.03.2021) standalone
+	@copyright taPMeppe solutions
+	this script is used to design the cookies forms
+*/
+#cookies {
+	z-index: @z_index * 10;
+	display: block;
+
+	&.cookies- {
+		&default {
+			p { text-align: left }
+			.cookies- {
+				&title,
+				&footer 
+				{ text-align: left }
+			}
+		}
+		&justify {
+			p { text-align: justify }
+			.cookies- {
+				&title,
+				&footer 
+				{ text-align: left }
+			}
+		}
+		&justify-center {
+			p { text-align: justify }
+			.cookies- {
+				&title,
+				&footer 
+				{ text-align: center }
+			}
+		}
+	}
+	.cookies- {
+		&image {
+			max-height: 150px;
+			width: fit-content;
+			margin: 0 auto @dim2 auto;
+
+			> img { width: 100% }
+		}
+		&title { 
+			padding: 0 0 @dim;
+			margin-bottom: 0;
+			color: var(--color-button)
+		}
+		&toggler {
+			.mx_pointer();
+			color: var(--color-button);
+			margin-bottom: 0;
+			transform: scale(2);
+
+			&[type=checkbox]{
+				.mx_hide();
+		
+				&:not(:checked) ~ .cookies-toggler-on,
+				&:checked ~ .cookies-toggler-off
+				{ .mx_hide() }
+				
+				&:disabled {
+					&:not(:checked) ~ .cookies-toggler-off,
+					&:checked ~ .cookies-toggler-on
+					{ 
+						cursor: not-allowed;
+						opacity: .5;
+					}
+				}
+			}
+		}
+		&navigation {
+			padding: 0 @dim @dim;
+			
+			@media screen and (min-width: @break_laptop){ display: flex }
+			> div {
+				width: 100%;
+				
+				@media screen and (min-width: @break_laptop){
+					/*
+					flex-basis: 0;
+					flex-grow: 1;
+					*/
+					&:first-child { 
+						max-width: 40%;
+						position: relative;
+					}
+					a {
+						position: absolute;
+						left: 0;
+						top: 50%;
+						transform: translateY(-50%);
+						//text-decoration: underline;
+					}
+				}
+				@media screen and (max-width: @break_mobile){
+					&:first-child { padding-bottom: @dim }
+				}
+				&:last-child { text-align: right }
+				button:first-child { 
+					// margin-right: @dim_bootstrap;
+					background-color: var(--color-left);
+				}
+			}
+		}
+		&primary .cookies-info { 
+			max-height: 150px;
+			overflow-y: auto;
+		}
+		&content { background-color: var(--color-left) }
+		&secondary {
+			background-color: var(--color-right);
+			max-height: 300px;
+			overflow-y: auto;
+		}
+		&footer { 
+			padding: @dim 0 0;
+
+			> span {
+				&:first-of-type { margin-right: @dim }
+				&:last-of-type { margin-left: @dim }
+			}
+		}
+	}
+	.button-outline > label { //correction
+		.mx_pointer();
+		margin-bottom: 0;
+	}
+	hr { margin: 0 @dim }
+}

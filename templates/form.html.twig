@@ -1,0 +1,40 @@
+{#
+	@description this script is used to finalise the form template
+	@since PM (04.03.2021) 
+	@see https://learn.getgrav.org/17/forms
+	@see https://learn.getgrav.org/17/forms/forms
+	@see https://www.tutorialspoint.com/grav/grav_forms.htm
+#}
+{% extends 'partials/base.html.twig' %} {# utils is set here #}
+
+{% block template %}form{% endblock %}
+{% block header %}
+	<section class="default">
+		<div class="center" data-active>
+			<h1>{{ page.title }}</h1>
+			<button class="btn button button-color" data-scroll-to="#content">{{ "explore"|tapmorphLabel }}</button>
+		</div>
+	</section>
+{% endblock %}
+{% block content %}
+	{% set notifications = '' %}
+	{% for key in ['progress', 'success', 'error'] %}
+		{% set notifications = notifications ~ 
+			"<div class='alert notification notification-"~ key ~"' role='alert'><span>"
+				~ ('submission_'~ key)|label ~
+			"</span></div>" 
+		%}
+	{% endfor %}
+	{# 
+		@see https://learn.getgrav.org/17/api#class-gravcommonpagepage
+		@see https://twig.symfony.com/doc/2.x/tags/include.html
+	#}
+	{% set process = page.header.form.process %}
+	{{ trapezeBlock(
+		include('forms/form.html.twig') ~ notifications ~ "<div class='mask'></div>", 
+		{class: [
+			process.ajax ? 'ajax' : '',
+			process.reset ? 'reset' : '',
+		]}
+	)|raw }}
+{% endblock %}

@@ -1,0 +1,141 @@
+//out: false, main: style.less
+/**
+	@since PM (05.03.2021) standalone
+	@copyright taPMeppe solutions
+	this script is used to design the navigation
+*/
+#navigation {
+	position: fixed;
+	width: 100%;
+	z-index: @z_index * 3;
+	padding: @dim_bootstrap;
+	transition: background-color @duration ease;
+	
+	@media screen and (max-width: @break_mobile){ padding: @dim_bootstrap * 2/3 0 }
+	&.active { background-color: @color_background_transp }
+
+	@col: ~'.@{slug}-col';
+	@{col}{ padding: 0 } //overwrite bootstrap
+	.home {
+		&:not(.active){ 
+			//display is not used here because the *height* must be preserved
+			visibility: hidden;
+			opacity: 0;
+		}
+		> a.logo {
+			display: block;
+			> img { 
+				//height: 100%;
+				max-height: 50px;
+				max-width: 100%;
+			}
+		}
+	}
+	.menu {
+		> section { 
+			float: right;
+			height: 100%;
+			position: relative;
+
+			&.languages { 
+				@media screen and (max-width: @break_mobile){ margin-right: @dim_2 }
+				@media screen and (min-width: @break_laptop){ margin-right: @dim }
+			}
+		}
+		@{button}{
+			text-transform: var(--text-transform-navigation);
+			min-height: 100%;
+			display: flex; //bug fix for the internal positioning of the icon
+		}
+		span { 
+			font-size: @dim * (3/2);
+			margin-right: @dim_2
+		}
+		i { 
+			font-size: @dim2;
+			&.icon-navicon { margin-top: .1em } //empiric value
+		}
+		a {
+			display: block;
+			text-decoration: none;
+			color: var(--color-text);
+			transition: background-color @duration * 2;
+
+			&:hover {
+				background-color: var(--color-right);
+			}
+		}
+		#button_languages {
+			&.show {
+				border-bottom-left-radius: 0;
+				border-bottom-right-radius: 0;
+
+				> i.icon-chevron-down { .mx_hide() }
+			}
+			&:not(.show) > i.icon-chevron-up { .mx_hide() }
+		}
+		#container_ {
+			&languages {
+				text-transform: var(--text-transform-navigation);
+				margin: 0;
+				border: solid var(--color-text) 1px;
+				border-top: none;
+				min-width: 100%;
+				border-top-left-radius: 0;
+				border-top-right-radius: 0;
+				background-color: var(--color-left);
+			}
+			&pages .modal- {
+				&dialog { //overwriting bootstrap
+					.mx_margin_auto();
+					width: 80%;
+					max-width: 400px!important
+				}
+				&content {
+					background-color: var(--color-left);
+					text-align: center;
+				}
+				&title { 
+					width: 100%;
+					text-transform: var(--text-transform-navigation);
+				}
+				&body ul {
+					list-style: none;
+					margin-bottom: 0;
+					padding: 0;
+
+					&.navigation-list {
+						> .navigation-item {
+							font-size: @dim;
+							font-weight: 200;
+
+							&.navigation-level- {
+								&1 { 
+									font-size: 1.6em;
+									text-transform: var(--text-transform-navigation);
+									font-weight: 400;
+								}
+								&2 { 
+									font-size: 1.4em;
+									font-weight: 400;
+								}
+								&3 { 
+									font-size: 1.2em;
+									font-weight: 200;
+								}
+							}
+						}
+					}
+					> li {
+						> a {
+							//letter-spacing: 0.1em;
+							//line-height: 1.5em;
+							padding: 5px
+						}
+						&.active > a { color: var(--color-button) } //text-decoration: underline
+					}
+				}
+			}
+		}
+	}
+}

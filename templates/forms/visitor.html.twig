@@ -1,0 +1,38 @@
+{#
+	this script is used as the forms reply template
+	@since PM (12.03.2021)
+	@see https://learn.getgrav.org/17/forms/forms/reference-form-actions#email
+	@see https://github.com/getgrav/grav-plugin-email#templating-emails
+#}
+{% extends 'email/base.html.twig' %}
+
+{% block content %}
+<p>
+	Greetings {{ form.value.name|e }},
+</p>
+
+<p>
+	We have received your request for help. Our team will get in touch with you within 3 Business Days.
+</p>
+{% for field in form.fields %}
+	<div>
+		<strong>{{ field.label }}</strong>: 
+		{{ string(form.value(field.name)|e) }}
+	</div>
+{% endfor %}
+<p>
+	Regards,
+</p>
+
+<p>
+	<b>My Company</b>
+	<br /><br />
+	E - <a href="mailto:help@mycompany.com">help@mycompany.com</a><br />
+	M - +1 555-123-4567<br />
+	W - <a href="https://mycompany.com">mycompany.com</a>
+</p>
+{% endblock %}
+
+{% block footer %}
+	<p style="text-align: center;">My Company - All Rights Reserved</p>
+{% endblock %}

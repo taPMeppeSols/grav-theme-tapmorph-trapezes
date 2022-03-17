@@ -1,0 +1,63 @@
+{# 
+	@description this script	is used to generate the head snippet
+	@since PM (23.12.2020) standalone
+#}
+<head>
+	{% block head %}
+		<meta charset="utf-8" />
+		{% block title %}
+			<title>
+				{% if THEME.title.enabled %} 
+					{{ site.title|e('html') }} 
+					{% if header.title %}: {{ header.title|e('html') }}{% endif %}
+				{% else %}{{ header.title|e('html') }}{% endif %}
+			</title>
+		{% endblock %}
+
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="theme-color" content="#2b2b2b">
+		{% include 'partials/metadata.html.twig' %}
+
+		{% if THEME.favicon %}
+			{# @see https://twig.symfony.com/doc/3.x/tags/for.html#iterating-over-keys #}
+			{% set favicon = THEME.favicon|first %}
+			<link rel="icon" type="{{ favicon.type }}" href="{{ favicon|tapmorphResource }}" />
+		{% else %}
+			<link rel="icon" type="image/png" href="{{ url('theme://images/favicon.png') }}"/>
+		{% endif %}
+		
+		<link rel="canonical" href="{{ page.url(true, true) }}" />
+	{% endblock head %}
+
+	{% block stylesheets %}
+		{# 
+			@since PM (xx.xx.2020) bootstrap, icomoon & roboto have been added
+			@see https://getbootstrap.com/docs/5.1/getting-started/contents/#css-files
+		#}
+		{% do assets.addCss('theme://css/bootstrap.min.css', 1) %}
+		{% do assets.addCss('theme://css/icomoon.css', 1) %}
+		{% do assets.addCss('theme://css/roboto.css', 1) %}
+		{% do assets.addCss('theme://css/style.css', 1) %}
+	{% endblock %}
+
+	{% block javascripts %}
+		{# 
+			@since PM (xx.xx.2020) jquery, bootstrap has been added
+			@since PM (13.03.2022) bootstrap v5.1 has been added & jquery removed
+			@see https://getbootstrap.com/docs/5.1/getting-started/contents/#js-files
+			@see https://getbootstrap.com/docs/5.1/getting-started/javascript/#still-want-to-use-jquery-its-possible
+		#}
+		{# {% do assets.addJs('jquery', 1) %} #}
+		{% do assets.addJs('theme://js/bootstrap.min.js', 1) %}
+		{# {% do assets.addJs('theme://js/bootstrap.bundle.min.js', 1) %} #}
+		{% do assets.addJs('theme://js/logic.js', {group:'bottom'}) %}
+	{% endblock %}
+
+	{% autoescape false %}
+		{% block assets deferred %}
+			{{ assets.css() }}
+			{{ assets.js() }}
+		{% endblock %}
+	{% endautoescape %}
+</head>

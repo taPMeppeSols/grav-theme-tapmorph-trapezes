@@ -1,0 +1,33 @@
+{% autoescape false %}
+	<form id="{{ idAuth }}" method='post' action=''>
+		<div>
+			<input 
+				name='{{ data }}[username]' 
+				value='{{ username }}' 
+				type='text' 
+				placeholder='{{ tapmorphText('SUBSCRIBERS_LOGIN_USERNAME') }}' 
+				autofocus='autofocus' 
+				required='required'
+			>
+		</div>
+		<div>
+			<input 
+				name='{{ data }}[password]' 
+				value='{{ password }}' 
+				type='password' 
+				placeholder='{{ tapmorphText('SUBSCRIBERS_LOGIN_PASSWORD') }}' 
+				required='required'
+			>
+		</div>
+		<div class='{{ notification }} {{ notification }}-error {% if error %}active{% endif %}'>
+			{{ error }}
+		</div>
+		<div>
+			<input name='{{ auth }}' value='{{ code }}' type='hidden'>
+			<button class='btn button' type='submit'>
+				<i class='icon-sign-in'></i>
+				<span>{{ tapmorphText('SUBSCRIBERS_LOGIN_SUBMIT') }}</span>
+			</button>
+		</div>
+	</form>
+{% endautoescape %}

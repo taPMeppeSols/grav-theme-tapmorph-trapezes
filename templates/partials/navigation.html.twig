@@ -1,0 +1,84 @@
+{# 
+	@description this script is used to generate the navigation snippet
+	@since PM (23.12.2020) standalone
+#}
+<aside id="navigation" class="{{ container }}">
+	{% block navigation %}
+		<div class="container row {{ SLUG }}-row">
+			{% block logo %}
+				{#
+					@see https://learn.getgrav.org/17/themes/theme-vars#url-include_host-false
+					- page.url(false, true) -> all pages except the home page
+					@see https://learn.getgrav.org/17/themes/theme-vars#route
+					- page.route -> _empty_ if error page
+				#}
+				<nav class="col-4 {{ SLUG }}-col home {{ page.url(false, true) == home_url and page.route ? '' : 'active' }}">
+					<a class="logo" href="{{ home_url }}">
+						{{ utils.logo(THEME, config) }}
+					</a>
+				</nav>
+			{% endblock %}
+			{% block menu %}
+				<nav class="col {{ SLUG }}-col menu">
+					{# pages #}
+					<section class="pages">
+						{# 
+							@see https://getbootstrap.com/docs/4.5/components/modal/#live-demo
+							@see https://getbootstrap.com/docs/4.5/components/modal/#scrolling-long-content
+							@see https://getbootstrap.com/docs/4.5/components/modal/#vertically-centered
+							'data-toggle="modal"' has been removed; the toggling is handled in logic.js
+						#}
+						<button 
+							class="btn button button-color" 
+							role="button" 
+							data-bs-toggle="modal"
+							data-bs-target="#container_pages"
+						>
+							<i class="icon-navicon"></i>
+						</button>
+						<div id="container_pages" class="modal fade" tabindex="-1" aria-hidden="true">
+							<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h2 class="modal-title">{{ "menu"|tapmorphLabel }}</h2>
+									</div>
+									<div class="modal-body">
+										{{ utils.navList(pages) }}
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					{# languages #}
+					{% if system.languages.supported|length > 1 %}
+						<section class="languages dropdown">
+							{#
+								@see https://getbootstrap.com/docs/4.5/components/dropdowns/
+								'data-toggle="dropdown"' has been removed; the toggling is handled in logic.js
+							#}
+							<button 
+								id="button_languages" 
+								class="btn button button-color" 
+								role="button" 
+								aria-haspopup="true" 
+								aria-expanded="false"
+							>
+								<span>{{ tapmorph_languages[LANG] }}</span>
+								<i class="icon-chevron-down"></i>
+								<i class="icon-chevron-up"></i>
+							</button>
+							<div id="container_languages" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+								{% for lang in system.languages.supported if LANG != lang %}
+									<a class="dropdown-item" href="{{ page.url(true, true)|regex_replace('@/'~ LANG ~'(/|$)@', '/'~ lang ~'$1') }}">
+										{{ tapmorph_languages[lang] }}
+									</a>
+								{% endfor %}
+							</div>
+						</section>
+					{% endif %}
+				</nav>
+			{% endblock menu %}
+		</div>
+	{% endblock navigation %}
+</aside>

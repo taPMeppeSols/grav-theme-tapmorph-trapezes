@@ -1,0 +1,38 @@
+{#
+	@since PM (14.03.2021)
+	@description this script is used to overwrite the plugin:forms radio field
+	@source user\plugins\form\templates\forms\fields\radio\radio.html.twig
+	@source user\themes\quark\templates\forms\fields\radio\radio.html.twig
+#}
+{% extends "forms/field.html.twig" %}
+
+{% set originalValue = value %}
+{% set value = (value is null ? field.default : value) %}
+
+{% block input %}
+	{% for key, text in field.options %}
+		{% set id = field.id|default(field.name) ~ '-' ~ key %}
+		<div class="{{SLUG}}-row radio {{ form_field_wrapper_classes }} {{ field.wrapper_classes }}">
+			<div class="col-1">
+				<input 
+					type="radio"
+					value="{{ key|e }}"
+					id="{{ id|e }}"
+					name="{{ (scope ~ field.name)|fieldName }}"
+					class="switcher-icon {{ form_field_radio_classes }} {{ field.classes }}"
+					{% if key == value %}checked="checked" {% endif %}
+					{% if field.disabled or isDisabledToggleable %}disabled="disabled"{% endif %}
+					{% if required %}required="required"{% endif %}
+					{% if field.tabindex %}tabindex="{{ field.tabindex }}"{% endif %}
+				/>
+				<label for="{{ id|e }}" class="switcher">
+					<i class="icon-circle-o"></i>
+					<i class="icon-dot-circle-o"></i>
+				</label>
+			</div>
+			<div class="col">
+				<label style="display: inline" class="inline" for="{{ id|e }}">{{ text|t|raw }}</label>
+			</div>
+		</div>
+	{% endfor %}
+{% endblock %}

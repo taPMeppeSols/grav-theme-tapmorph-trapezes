@@ -1,0 +1,208 @@
+//out: false, main: style.less
+/**
+	@since PM (04.03.2021) standalone
+	@copyright taPMeppe solutions
+	this script is used to design the trapezes
+*/
+#content {
+	> .trapeze { /** @extends https://html5up.net/solid-state */
+		position: relative;
+		@media screen and (max-width: @break_mobile){ padding: @dim }
+		@media screen and (min-width: @break_laptop){ padding: @dim @dim2 }
+
+		//pseudo classes
+		&:before, &:after {
+			content: '';
+			display: block;
+			position: absolute;
+			height: @dim_trapeze;
+			width: 100%;
+			left: 0;
+			background-repeat: no-repeat;
+			background-size: 100% 100%;
+		}
+		&:before { top: -@dim_trapeze }
+		&:after { bottom: -@dim_trapeze }
+		&:only-child { //empty room correction
+			//height: calc(100% - @dim_trapeze * 2);
+			@media screen and (max-width: @break_mobile){ min-height: 60vh }
+			@media screen and (min-width: @break_laptop){ min-height: 50vh }
+			@media screen and (min-height: @VP_XL_MIN){ min-height: 60vh }
+			@media screen and (min-height: calc(@VP_XL_MIN + @dim_trapeze_min)){ min-height: 80vh }
+		}
+
+		//section variants
+		&.trapeze-left {
+			background-color: var(--color-left);
+
+			&:before, &:after {
+				background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:%23@{color_trapeze_left}%3B' /%3E%3C/svg%3E");
+				box-shadow: inset 0 -1px 0 0 var(--color-left), 0 1px 0 0 var(--color-left);
+				//box-shadow: inset 0 -1px 0 0 @color_trapeze_left_hex, 0 1px 0 0 @color_trapeze_left_hex;
+			}
+			&:before { transform: scaleX(-1) }
+			&:after { transform: scaleY(-1) scaleX(-1) }
+			.trapeze-text { text-align: left }
+			@media screen and (min-width: @break_laptop){
+				.trapeze-image > img { right: @dim_bootstrap }
+			}
+		}
+		&.trapeze-right {
+			background-color: var(--color-right);
+			//background-color: @color_trapeze_right_hex;
+
+			&:before, &:after {
+				background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:%23@{color_trapeze_right}%3B' /%3E%3C/svg%3E");
+				box-shadow: inset 0 -1px 0 0 var(--color-right), 0 1px 0 0 var(--color-right);
+				//box-shadow: inset 0 -1px 0 0 @color_trapeze_right_hex, 0 1px 0 0 @color_trapeze_right_hex;
+			}
+			&:before {}
+			&:after { transform: scaleY(-1) }
+			.trapeze-text { text-align: right }
+			@media screen and (min-width: @break_laptop){
+				.trapeze-image > img { left: @dim_bootstrap }
+			}
+		}
+		//&.trapeze-paragraph {}
+		&.trapeze-minimum .trapeze-row { min-height: @dim_trapeze_min }
+		&.trapeze-illustration { //image in the background
+			z-index: @z_index;
+			margin: -@dim_trapeze 0;
+			background-size: contain;
+			background-position: center;
+			//background-repeat: no-repeat;
+			&:first-child, &:last-child { .mx_hide_2() } //illustrations should not be placed at the beginning or the end
+			&.trapeze-fixed { background-attachment: fixed }
+			.trapeze-row {
+				margin-top: @dim_trapeze;
+				margin-bottom: @dim_trapeze;
+				//background-color: @color_background_transp;
+			}
+		}
+		&:not(.trapeze-illustration){ 
+			z-index: @z_index * 2;
+			margin: @dim_trapeze 0;
+		}
+		&.trapeze-carousel {
+			@buffer: 10%;
+			> div { margin-bottom: @dim_bootstrap * 2 }
+			.trapeze-indicators { /* @override bootstrap */
+				@media screen and (max-width: @break_mobile){ bottom: @dim_bootstrap * -3 }
+				@media screen and (min-width: @break_laptop){ bottom: @dim_bootstrap * -4 }
+				
+				> li { 
+					background-color: var(--color-button);
+					height: @dim_bootstrap / 3;
+					margin-right: @dim_bootstrap / 3;
+					margin-left: @dim_bootstrap / 3;
+				}
+			}
+			.trapeze-control {
+				font-size: @dim2;
+				color: var(--color-button);
+				opacity: @opacity_off;
+				width: 10%;
+				min-width: 40px;
+				transition: background-color @duration ease, opacity @duration ease;
+				text-decoration: none;
+				cursor: auto;
+
+				&:hover {
+					opacity: .9; //bootstrap value
+					background-color: rgba(@color_background, .5);
+					text-decoration: none;
+				}
+				> span { 
+					border-radius: @dim_radius;
+					padding: @dim_2;
+					cursor: pointer;
+				}
+			}
+		}
+		&.trapeze-text-justify {
+			p { text-align: justify }
+			&-center {
+				.trapeze-text > :not(p) { text-align: center }
+				p { text-align: justify }
+			}
+		}
+		&.trapeze-error span.error-icon { font-size: 15em }
+		/*
+		&.trapeze-additional-xxx {
+			&:before, &:after {
+				background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:%23@{__COLOR_ADDITIONAL__}%3B' /%3E%3C/svg%3E");
+				box-shadow: inset 0 -1px 0 0 __COLOR_ADDITIONAL_HEX__, 0 1px 0 0 __COLOR_ADDITIONAL_HEX__;
+			}
+		}
+		*/
+
+		//under classes
+		.trapeze-row { padding: @dim 0 }
+		.trapeze-center {
+			.mx_margin_auto();
+			text-align: center;
+			
+			> * { width: 100%; }
+			@media screen and (min-width: @break_laptop){ 
+				&.trapeze-compact {
+					//max-width: @break_mobile;
+					max-width: 760px; //=: col-sm-8.width
+				}
+				&:not(.trapeze-compact)	> p {
+					column-count: 2;
+					column-gap: @dim_bootstrap * 2;
+				}
+			}
+		}
+		.trapeze-center, .trapeze-text {
+			> *:nth-last-child(n+2){ margin-bottom: @dim_bootstrap * 2 }
+		}
+		.trapeze-image {
+			text-align: center;
+			position: relative;
+
+			&.trapeze-radius- {
+				&0 > img { border-radius: 0 }
+				&25 > img { border-radius: 25% }
+				&50 > img { border-radius: 50% }
+			}
+			> img { border-radius: 50% }
+
+			@media screen and (max-width: @break_mobile){
+				margin-bottom: @dim_bootstrap * 2;
+
+				&.trapeze-desktop { .mx_hide() }
+				> img { 
+					//width: 100%;
+					//max-width: 400px;
+					width: auto;
+					max-width: 100%;
+				}
+			}
+			@media screen and (min-width: @break_laptop){
+				&.trapeze-mobile { .mx_hide() }
+				&.trapeze-position- {
+					&top > img { top: 0 }
+					&middle > img {
+						top: 50%;
+						transform: translateY(-50%);
+					}
+					&bottom > img { bottom: 0; }
+				}
+				> img {
+					position: absolute;
+					width: auto;
+					height: auto;
+					max-width: calc(100% - @dim_bootstrap * 2);
+					max-height: 100%;
+					//min-height: @dim_trapeze_min * 2 / 3
+				}
+			}
+		}
+		> div.container {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+	> :not(.trapeze){ .mx_hide_2() }
+}

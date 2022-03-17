@@ -1,0 +1,70 @@
+{#
+	@since PM (26.11.2020)
+	@source user/themes/quark/templates/partials/base.html.twig
+	{% set theme_config = attribute(config.themes, config.system.pages.theme) %}
+	{% if theme_config.dropdown.enabled %}
+	{% for item in site.menu %}
+
+	@see https://craftquest.io/articles/passing-data-with-a-twig-include-statement
+	- include with
+#}
+{% import "partials/utils.html.twig" as utils %}
+{% set THEME = config.theme %}
+{% set SLUG = tapmorph_slug ?: THEME.slug %}
+{% set LANG = html_lang %} {# simple wrapper #}
+
+<!DOCTYPE html>
+{# 
+	lang="{{ grav.language.getActive ?: grav.config.site.default_lang }}"
+	@see https://learn.getgrav.org/17/api#class-grav-common-browser 
+#}
+<html 
+	lang="{{ LANG }}"
+	class="{{ browser.browser }} {{ browser.platform }} template-{% block template %}{% endblock %}"
+>
+	{% include "partials/head.html.twig" %}
+
+	{#
+		@see https://learn.getgrav.org/17/themes/theme-vars#media
+		@see https://learn.getgrav.org/17/content/media
+	#}
+	{% set url = '' %}
+	{% if page.media.images %}
+		{% set url = page.media.images|first|tapmorphResource %}
+	{% elseif THEME.head %}
+		{% set url = THEME.head|first|tapmorphResource %}
+	{% else %}
+		{% set url = url('theme://images/background.jpg') %}
+	{% endif %}
+	{##}
+
+	<body class="{{ page.header.body_classes }}" style='background-image: url("{{ url }}")'>
+		{% set container = SLUG ~'-container' %}
+		
+		{% include "partials/cookies.html.twig" %}
+		{% include "partials/navigation.html.twig" %}
+		<main id="main" class="{{ container }}">
+			{% block main %}
+				{% block articles %}
+					<article id="header">
+						{% block header %}
+							<h1>{{ page.title }}</h1>
+						{% endblock %}
+					</article>
+					<article id="content">
+						{% block content %}{{ page.content|raw }}{% endblock %}
+					</article>
+					{% include "partials/footer.html.twig" %}
+				{% endblock articles %}
+			{% endblock main %}
+		</main>
+		<aside>
+			{% block topper %}
+				<a id="topper" class="btn button floater" data-scroll-to="0">
+					<i class="icon-chevron-up" data-scroll-to="0"></i>
+				</a>
+			{% endblock %}
+		</aside>
+		{% include "partials/foot.html.twig" %}
+	</body>
+</html>

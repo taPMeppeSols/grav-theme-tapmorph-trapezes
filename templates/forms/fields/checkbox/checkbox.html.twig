@@ -1,0 +1,43 @@
+{#
+	@since PM (14.03.2021)
+	@description this script is used to overwrite the plugin:forms checkbox field
+	@source user\plugins\form\templates\forms\fields\checkbox\checkbox.html.twig
+	@source user\themes\quark\templates\forms\fields\checkbox\checkbox.html.twig
+#}
+{% extends "forms/field.html.twig" %}
+
+{% block label %}{% endblock %}
+{% block input %}
+	{% set id = field.id|default(field.name) ~'-'~ key %}
+	<div class="{{SLUG}}-row {{ form_field_wrapper_classes ?: 'form-input-wrapper' }} {{ field.size }} {{ field.wrapper_classes }}">
+		<div class="col-1">
+			<input
+				{# required attribute structures #}
+				name="{{ (scope ~ field.name)|fieldName }}"
+				value="{{ value|join(', ') }}"
+				type="checkbox"
+				{% if value == true %} checked="checked" {% endif %}
+
+				{# input attribute structures #}
+				{% block input_attributes %}
+					id="{{ id|e }}"
+					class="switcher-icon {% if field.classes is defined %}{{ field.classes }}{% endif %}"
+					{% if field.style is defined %}style="{{ field.style|e }}" {% endif %}
+					{% if field.disabled or isDisabledToggleable %}disabled="disabled"{% endif %}
+					{% if field.autofocus in ['on', 'true', 1] %}autofocus="autofocus"{% endif %}
+					{% if field.novalidate in ['on', 'true', 1] %}novalidate="novalidate"{% endif %}
+					{% if required %}required="required"{% endif %}
+				{% endblock %}
+			/>
+			<label for="{{ id|e }}" class="switcher">
+				<i class="icon-square-o"></i>
+				<i class="icon-check-square-o"></i>
+			</label>
+		</div>
+		<div class="col">
+			<label class="{{ form_field_checkbox_classes }}" for="{{ id|e }}">
+				{{ field.label|t|e }} {{ field.validate.required in ['on', 'true', 1] ? '<span class="required">*</span>' }}
+			</label>
+		</div>
+	</div>
+{% endblock %}

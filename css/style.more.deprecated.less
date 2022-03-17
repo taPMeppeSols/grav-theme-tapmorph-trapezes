@@ -1,0 +1,29 @@
+//out: false
+/**
+	@since PM (14.03.2021) standalone
+	@copyright taPMeppe solutions
+	this script contains the old checkboxes
+*/
+input[type=checkbox]{ //@source plugin:form .checkboxes
+	.mx_hide();
+	
+	+ label:before {
+		content: "";
+		display: inline-block;
+		width: @dim_check * 2;
+		height: @dim_check * 2;
+		left: 0;
+		margin-top: 0;
+		margin-right: @dim_check;
+		position: absolute;
+		border-radius: @dim_radius;
+		border: 1px solid var(--color-button);
+		color: var(--color-button);
+	}
+	&:checked + label:before {
+		content: "\2713"; //check icon
+		font-size: @dim_check * 2;
+		line-height: 1;
+		text-align: center;
+	}
+}

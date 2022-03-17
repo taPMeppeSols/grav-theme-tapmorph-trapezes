@@ -1,0 +1,77 @@
+THEME_TAPMORPH_TRAPEZES:
+  BUTTON: Registrieren
+  DELETION_ERROR: Fehler! Die E-Mail-Adresse konnte nicht von der Mailingliste entfernt werden.
+  DELETION_NOT_FOUND: Die E-Mail-Adresse konnte nicht in der Mailingliste gefunden werden.
+  DELETION_SUCCESS: Die E-Mail-Adresse wurde erfolgreich von der Mailingliste entfernt.
+  DESIGN: Design
+  EMAIL: E-Mail-Adresse
+  FAVICON: Favicon
+  FAVICON_DESC: Empfohlen <strong>512x512</strong> Pixel. Wenn leer gelassen wird, wird das Standard-Favicon verwendet.
+  FAVICON_HELP: Empfohlen 512x512 Pixel. Wenn leer gelassen wird, wird das Standard-Favicon verwendet.
+  HEAD: Kopf
+  LEGAL: Rechtliche Angelegenheiten
+  LOGO: Logo
+  LOGO_DESC: Wenn nichts angegeben wird, wird das Standardlogo verwendet.
+  NAME: Name
+  NOTIFICATION_ERROR: Fehler! Etwas ist schiefgegangen.
+  NOTIFICATION_EXISTS: Diese E-Mail-Adresse wurde bereits registriert.
+  NOTIFICATION_PROGRESS: In Bearbeitung ...
+  NOTIFICATION_SUCCESS: Erfolg! Überprüfen Sie Ihren Posteingang.
+  PAGE_DESC: <strong>Alternativ zum Inline-Hinweis</strong> kann eine <em style="color:#f8444e">Seite</em> verwendet werden, in der sich der Inhalt befindet.
+  PAGE_IMPRINT: Impressum (eigenständige Seite)
+  PAGE_IMPRINT_INLINE: Impressum (inline)
+  PAGE_IMPRINT_INLINE_HELP: Der Text, der am Fuß der Website erscheinen wird.
+  PAGE_LANGUAGE: Sprache
+  PAGE_LANGUAGE_HELP: Wählen Sie die Standardsprache aus, um den Inhalt in allen Sprachen zu aktivieren.
+  PAGE_PRIVACY_POLICY: Datenschutzrichtlinie (eigenständige Seite)
+  PAGE_PRIVACY_POLICY_DESC: Verwenden Sie <strong>nur</strong> die eckigen Klammern <code>[ ... ]</code>, um den Begriff/Wort im Titel zu markieren, der zum Öffnen/Anzeigen der Datenschutzrichtlinie verwendet werden soll. Auf die Datenschutzerklärung kann man <a href="/?privacy-policy=1" target="_blank">hier</a> direkt zugreifen.<br><strong>Alternativ zu dem Inline-Hinweis</strong> kann eine <em style="color:#f8444e">Seite</em> verwendet werden, in der sich der Inhalt befindet.
+  PAGE_PRIVACY_POLICY_HELP: "Verwenden Sie NUR die eckigen Klammern <code>[ ... ]</code>, um den Begriff/Wort im Titel zu markieren, der zum Öffnen/Anzeigen der Datenschutzrichtlinie verwendet werden soll. Auf die Datenschutzerklärung kann man hier direkt zugreifen: _HOME_URL_?privacy-policy=1 ."
+  PAGE_PRIVACY_POLICY_INLINE: Datenschutzrichtlinie (inline)
+  PAGE_PRIVACY_POLICY_INLINE_HELP: Der Text, der auf dem Anmeldeformular erscheint. Verwenden Sie NUR die eckigen Klammern ([ ... ]), um den Begriff/Wort im Titel zu markieren, der zum Öffnen/Anzeigen der Datenschutzrichtlinie verwendet werden soll.
+  PAGE_TITLE: Titel
+  PAGE_TYPE_FULL_EXPLORE: Entdecken
+  SELECT: '-- Auswahl --'
+  REGISTRATION: Registrierung
+  REGISTRATION_RECIPIENT: Empfänger
+  REGISTRATION_RECIPIENTS: Empfänger
+  REGISTRATION_RECIPIENTS_HELP: Die Administratoren, die alle Besucherregistrierungsanfragen erhalten werden. Lassen Sie diesen Abschnitt leer, um das Registrierungsmodul zu DEAKTIVIEREN. Um die von beiden Seiten empfangenen E-Mails anzupassen, kopieren Sie die Datei 'theme:/languages/admin.json' nach 'data:/__THEME__/languages.json' und überschreiben Sie diese. Achten Sie auf Wörter, die mit '__' beginnen & enden, sie sind Platzhalter, die im Laufe des Lebenszyklus der Texte angemessen ersetzt werden.
+  REGISTRATION_STATUS_DESC: Der <strong>status</strong> muss aktiviert werden und mindestens ein <strong>Empfänger</strong> muss eingestellt werden, um das Registrierungsmodul zu aktivieren.
+  REGISTRATION_STATUS_HELP: Der STATUS muss aktiviert werden und mindestens ein EMPFÄNGER muss eingestellt werden, um das Registrierungsmodul zu aktivieren.
+  REGISTRATION_TEXTS: Texts
+  REGISTRATION_TEXTS_BUTTON: Beschriftung des Buttons
+  REGISTRATION_TEXTS_HELP: Die Texte, die vor und nach dem Registrierungsprozess zu verwenden sind. Wenn leer gelassen, werden die Standardtexte verwendet.
+  REGISTRATION_TEXTS_EMAIL: E-Mail-Feld-Platzhalter
+  REGISTRATION_TEXTS_NOTIFICATION_ERROR: "Benachrichtigung: Fehler"
+  REGISTRATION_TEXTS_NOTIFICATION_EXISTS: "Benachrichtigung: bereits vorhanden"
+  REGISTRATION_TEXTS_NOTIFICATION_PROGRESS: "Benachrichtigung: in Bearbeitung"
+  REGISTRATION_TEXTS_NOTIFICATION_SUCCESS: "Benachrichtigung: Erfolg"
+  REGISTRATION_TEXTS_RESPONSE_ERROR: "Registrierung: Fehler"
+  REGISTRATION_TEXTS_RESPONSE_EXISTS: "Registrierung: bereits vorhanden"
+  REGISTRATION_TEXTS_RESPONSE_SUCCESS: "Registrierung: Erfolg"
+  REGISTRATION_TEXTS_UNDO_ERROR: "Registrierung rückgängig machen: Fehler"
+  REGISTRATION_TEXTS_UNDO_NOT_FOUND: "Registrierung rückgängig machen: nicht gefunden"
+  REGISTRATION_TEXTS_UNDO_SUCCESS: "Registrierung rückgängig machen: Erfolg"
+  RESPONSE_ERROR: Fehler! Die Registrierung ist fehlgeschlagen.
+  RESPONSE_EXISTS: Diese E-Mail-Adresse wurde bereits registriert.
+  RESPONSE_SUCCESS: Die Registrierung war erfolgreich.
+  SOCIAL_NETWORK: Soziales Netzwerk
+  SOCIAL_NETWORKS: Soziale Netzwerke
+  SOCIAL_NETWORKS_DESC: Geben Sie die URL der Landing-Page in dem jeweiligen sozialen Netzwerk ein.
+  SOCIAL_NETWORKS_ORDER: Reihenfolge der Netzwerke
+  SOCIAL_NETWORKS_ORDER_HELP: Legen Sie die Reihenfolge der sozialen Netzwerke fest. Die 'Drag & Drop'-Funktion steht hier zur Verfügung.
+  SOCIAL_NETWORKS_STATUS_DESC: Der <strong>status</strong> muss aktiviert werden und mindestens eine <strong>URL</strong> muss eingestellt werden, um das Registrierungsmodul zu aktivieren.
+  SOCIAL_NETWORKS_STATUS_HELP: Der STATUS muss aktiviert werden und mindestens eine URL muss eingestellt werden, um das Registrierungsmodul zu aktivieren.
+  SOCIAL_NETWORKS_URLS: URLs
+  SOCIAL_NETWORKS_URLS_FACEBOOK: Facebook
+  SOCIAL_NETWORKS_URLS_GITHUB: Github
+  SOCIAL_NETWORKS_URLS_INSTAGRAM: Instagram
+  SOCIAL_NETWORKS_URLS_LINKEDIN: LinkedIn
+  SOCIAL_NETWORKS_URLS_TUMBLR: Tumblr
+  SOCIAL_NETWORKS_URLS_TWITTER: Twitter
+  SOCIAL_NETWORKS_URLS_WHATSAPP: WhatsApp
+  SOCIAL_NETWORKS_URLS_XING: Xing
+  STATUS: Status
+  TITLE: Seitentitel
+  TITLE_DESC: Soll der in der <a href="../config/site" target="_blank">Konfiguration</a> eingestellte Seitentitel im Frontend zugänglich sein?
+  TITLE_HELP: Soll der in der Konfiguration eingestellte Seitentitel im Frontend zugänglich sein?
+  

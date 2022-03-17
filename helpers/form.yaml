@@ -1,0 +1,290 @@
+# this script lists all the fields whose design is currently supported by the theme and more
+# copy the content, place it in the desired frontmatter and adjust it accordingly
+# below I have listed the sources used to familiarise myself with the topic
+# @since PM (10.03.2022) first draft
+
+# @see https://learn.getgrav.org/17/forms/forms
+# @see https://learn.getgrav.org/17/forms/forms/form-options
+# @see https://learn.getgrav.org/17/forms/forms/fields-available
+# @see https://learn.getgrav.org/17/forms/forms/fields-available#captcha-field
+# @see https://learn.getgrav.org/17/forms/forms/reference-form-actions#captcha
+# @see https://learn.getgrav.org/17/forms/forms/example-form
+# @see https://learn.getgrav.org/17/forms/forms/reference-form-actions
+# @see https://learn.getgrav.org/17/forms/forms/reference-form-actions#email
+# @see https://learn.getgrav.org/17/forms/forms/reference-form-actions#save
+# @see https://learn.getgrav.org/17/forms/forms/how-to-ajax-submission
+# @see https://github.com/getgrav/grav-plugin-email#emails-sent-with-forms
+# @see https://github.com/getgrav/grav-plugin-email/blob/develop/README.md#emails-sent-with-forms
+# @see https://www.tutorialspoint.com/grav/grav_forms.htm
+# @see https://developers.google.com/recaptcha/docs/faq
+# @see https://www.google.com/recaptcha/admin
+
+title: Form
+date: '12:40 09-03-2022'
+form:
+  name: tapmorph-trapezes-form
+  # method: POST
+  id: trapezes_form
+  classes: trapezes-form
+  keep_alive: true
+  fields:
+    hidden:
+      type: hidden
+      default: 'Lorem ipsum'
+    spacer.first:
+      type: spacer
+      title: A title
+      text: Some text
+      underline: true
+    checkbox_one:
+      type: checkbox
+      label: 'Simple checkbox'
+      outerclasses: label-first-hidden
+      default: true
+      validate:
+        required: true
+    fieldset:
+      type: fieldset
+      id: my-fieldset
+      legend: 'Test Fieldset'
+      fields:
+        first_field: { type: text, label: 'First Field' }
+        second_field: { type: text, label: 'Second Field' }
+    spacer.second:
+      type: spacer
+      underline: false
+    checkbox_two:
+      type: checkbox
+      label: 'Agree to the terms and conditions'
+      default: true
+      validate:
+        required: true
+    checkboxes:
+      type: checkboxes
+      label: A couple of checkboxes
+      default:
+          - option1
+          - option2
+      options:
+        option1: Option 1
+        option2: Option 2
+    date:
+      type: date
+      label: Enter a date
+      validate:
+        min: "2018-01-01"
+        max: "2022-12-31"
+    time:
+      type: time
+      label: Enter a date
+      validate:
+        min: "2018-01-01"
+        max: "2022-12-31"
+    instructions:
+      type: display
+      size: large
+      label: Instructions
+      markdown: true
+      content: "This is a test of **bold** and _italic_ in a text/display field\n\nanother paragraph...."
+    email:
+      label: Email
+      placeholder: 'Enter your email address'
+      type: email
+      default: a@a.com
+      validate:
+        required: true
+    files:
+      type: file
+      multiple: true
+      destination: 'self@'
+      accept:
+        - image/gif
+        - video/mp4
+    honeypot:
+      type: honeypot
+    number:
+      type: number
+      label: 'How Much?'
+      validate:
+        min: 10
+        max: 360
+        step: 10
+    password:
+      type: password
+      label: Password
+      classes: form-control
+    choice:
+      type: radio
+      label: Choice
+      default: markdown
+      options:
+        markdown: Markdown
+        twig: Twig
+    phone:
+      type: tel
+      label: 'Your Phone Number'
+    website:
+      type: url
+      label: 'Your homepage'
+    enabled:
+      type: toggle
+      label: PLUGIN_ADMIN.ENABLED
+      highlight: 1
+      help: PLUGIN_ADMIN.ENABLED_HELP
+      options:
+        1: PLUGIN_ADMIN.YES
+        0: PLUGIN_ADMIN.NO
+        -1: MAYBE
+      validate:
+        type: bool
+    range:
+      type: range
+      label: Choose a number
+      validate:
+        min: 1
+        max: 10
+    selector:
+      type: select
+      label: Default Ordering
+      help: Pages in a list will render using this order unless it is overridden
+      options:
+        default: Default - based on folder name
+        folder: Folder - based on prefix-less folder name
+        title: Title - based on title field in header
+        date: Date - based on date field in header
+    selectors:
+      type: select_optgroup
+      label: Test Optgroup Select Field
+      options:
+        - OptGroup1:
+          - Option1
+          - Option2
+        - OptGroup2:
+          - Option3
+          - Option4
+    tabs:
+      type: tabs
+      active: 1
+      fields:
+        content:
+          type: tab
+          title: PLUGIN_ADMIN.CONTENT
+          fields:
+            tabs.selector:
+              type: select
+              label: Default Ordering
+              help: Pages in a list will render using this order unless it is overridden
+              options:
+                  default: Default - based on folder name
+                  folder: Folder - based on prefix-less folder name
+                  title: Title - based on title field in header
+                  date: Date - based on date field in header
+            tabs.selectors:
+              type: select_optgroup
+              label: Test Optgroup Select Field
+              options:
+                - OptGroup1:
+                  - Option1
+                  - Option2
+                - OptGroup2:
+                  - Option3
+                  - Option4
+        options:
+          type: tab
+          title: PLUGIN_ADMIN.OPTIONS
+          fields:
+            tabs.enabled:
+              type: toggle
+              label: PLUGIN_ADMIN.ENABLED
+              highlight: 1
+              help: PLUGIN_ADMIN.ENABLED_HELP
+              options:
+                  1: PLUGIN_ADMIN.YES
+                  0: PLUGIN_ADMIN.NO
+                  -1: MAYBE
+              validate:
+                  type: bool
+            tabs.range:
+              type: range
+              label: Choose a number
+              validate:
+                min: 1
+                max: 10
+    spacer.last:
+      type: spacer
+      underline: true
+    honeypot:
+      type: honeypot
+    name:
+      label: Name
+      placeholder: 'Enter your name'
+      default: my name
+      autofocus: 'on'
+      autocomplete: 'on'
+      type: text
+      validate:
+        required: true
+    content:
+      type: textarea
+      autofocus: true
+      label: PLUGIN_ADMIN.CONTENT
+      minlength: 10
+      maxlength: 255
+    g-recaptcha-response:
+      type: captcha
+      label: Captcha
+      recaptcha_site_key: 6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI
+      recaptcha_not_validated: 'Captcha not valid!'
+    honeypot:
+      type: honeypot
+  buttons:
+    -
+      type: submit
+      value: Submit
+    -
+      type: reset
+      value: Reset
+  process:
+    captcha: #@see https://learn.getgrav.org/17/forms/forms/fields-available#captcha-field
+      recaptcha_secret: 6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe
+      message: 'Successfully passed reCAPTCHA!'
+    ip:
+      label: Visitor IP Address
+    timestamp:
+      label: Submission Timestamp
+      format: Y-m-d H:i:s #@see https://www.php.net/manual/en/function.date.php ! Example #4
+    ajax: true #NOT standard; provided by this theme; it is used as a flag to process the form submission via AJAX
+    presave: true #NOT standard; provided by this theme; it should be placed BEFORE 'save'
+    save: #@see https://learn.getgrav.org/17/forms/forms/reference-form-actions#save
+      fileprefix: feedback-
+      dateformat: Ym #1 file per month
+      extension: txt
+      body: '{% include ''forms/storage.txt.twig'' %}'
+      operation: add
+    email: 
+      # @requires email plugin @see https://github.com/getgrav/grav-plugin-email
+      # @see https://learn.getgrav.org/17/forms/forms/reference-form-actions#email
+      -
+        from: '{{ config.plugins.email.from }}'
+        from_name: 'Custom sender name'
+        to: ['{{ config.plugins.email.to_support }}', '{{ config.plugins.email.to_marketing }}']
+        to_name: ['Custom recipient name', 'Custom recipient name']
+        subject: '[Feedback] {{ form.value.name|e }}'
+        body: '{% include ''forms/admin.html.twig'' %}'
+        content_type: text/html
+        process_markdown: true
+      -
+        from: '{{ config.plugins.email.from }}'
+        from_name: 'Custom sender name'
+        to: ['{{ form.value.email }}']
+        to_name: 'Custom recipient name'
+        subject: '[Feedback] {{ form.value.name|e }}'
+        body: '{% include ''forms/visitor.html.twig'' %}'
+        content_type: text/html
+        process_markdown: true
+    message: 'Thank you for your feedback!'
+    reset: true #@see https://learn.getgrav.org/17/forms/forms/reference-form-actions#reset-the-form-after-submit
+    # display: thankyou #@see https://learn.getgrav.org/17/forms/forms/reference-form-actions#display
+      # add if need be
+    # TODO: custom process to add the data to the company's CRM
+    # @see https://learn.getgrav.org/17/forms/forms/reference-form-actions#an-example-of-custom-form-handling

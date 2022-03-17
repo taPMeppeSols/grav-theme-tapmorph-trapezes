@@ -1,0 +1,36 @@
+[
+    "tapmorph-trapezes-form",
+    {
+        "hidden": "Lorem ipsum",
+        "checkbox_one": "1",
+        "first_field": null,
+        "second_field": null,
+        "checkbox_two": "1",
+        "checkboxes": {
+            "checkboxes-option1": "option1",
+            "checkboxes-option2": "option2"
+        },
+        "date": null,
+        "time": null,
+        "email": "a@a.com",
+        "honeypot": "",
+        "number": null,
+        "password": null,
+        "choice": "markdown",
+        "phone": null,
+        "website": null,
+        "range": 6,
+        "selector": "default",
+        "selectors": "Option3",
+        "tabs": {
+            "selector": "default",
+            "selectors": "Option3",
+            "range": 6
+        },
+        "name": "my name",
+        "content": null,
+        "files": [],
+        "ip": "fe80::5964:a2b:c53a:812",
+        "timestamp": "2021-03-13 15:25:57"
+    }
+]

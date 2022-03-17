@@ -1,0 +1,227 @@
+//out: false, main: style.less
+/**
+	@since PM (05.03.2021) standalone
+	@copyright taPMeppe solutions
+	this script is used to design the GRAV native forms
+	TOKNOW the GRAV native error style is located here: /user/plugins/markdown-notices/assets/notices.css
+*/
+html.template-form > & { //html.template-form > body
+	#content > .trapeze { 
+		.trapeze-block {
+			max-width: @dim_form;
+			text-align: left;
+		}
+		form {
+			div {
+				&.form- {
+					&field,
+					&tabs
+					{
+						&:nth-last-child(n + 2){ margin-bottom: @dim_margin *(3/2); }
+					}
+					&field { //form-field ~= bootstrap:form-group
+						//custom elements
+						&.label-first-hidden > div.form-label:first-child, 
+						div.checkboxes label:before
+						{ .mx_hide() }
+
+						> div.form-label > label { width: 100% } //label
+						p { text-align: left } //display
+						input[type=text], //inputs
+						input[type=email],
+						input[type=password],
+						input[type=url],
+						input[type=date],
+						input[type=time],
+						input[type=number],
+						input[type=tel],
+						textarea,
+						select
+						{ //@source bootstrap:.form-control
+							display: block;
+							height: @dim2 + @dim_2; //calc(1.5em + .75rem + 2px);
+							padding: @dim_2; //.375rem .75rem;
+							font-size: @dim;
+							font-weight: 400;
+							line-height: 1.5;
+							color: var(--color-dark); //#495057;
+							border: 1px solid var(--color-text-blue); //1px solid #ced4da;
+							border-radius: @dim_radius; //.25rem;
+						}
+						input[type=text],
+						input[type=email],
+						input[type=password],
+						input[type=url],
+						input[type=date],
+						input[type=time],
+						input[type=number],
+						input[type=tel],
+						textarea
+						{ //@source bootstrap:.form-control
+							background-clip: padding-box;
+							background-color: var(--color-text); //#fff;
+							transition: border-color @duration_half ease-in-out, box-shadow @duration_half ease-in-out;
+								//transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+						}
+						input[type=text],
+						input[type=email],
+						input[type=password],
+						input[type=url],
+						input[type=range],
+						select
+						{ width: 100% }
+						//...
+						input[type=date],
+						input[type=time],
+						input[type=number]
+						{
+							width: 50%;
+							min-width: 200px;
+						}
+						//...
+						input[type=tel]{
+							width: 75%;
+							min-width: 200px;
+						}
+						input[type=radio]{ margin-right: 5px }
+						input[type=range]{ //@see https://codeconvey.com/html-range-slider-with-ticks-and-values/
+							.mx_pointer();
+							appearance: none;
+							height: @dim_2;
+							padding: 0;
+							background-color: var(--color-text);
+							border-radius: @dim_radius;
+
+							//DO NOT MERGE the definitions below
+							.mx_range_thumb(){
+								.mx_pointer();
+								border: 0;
+								height: @dim;
+								width: @dim;
+								border-radius: 50%; //make a circle
+								background: var(--color-button);
+							}
+							&::-ms-thumb { .mx_range_thumb() }
+							&::-webkit-slider-thumb {
+								.mx_range_thumb();
+								-webkit-appearance: none;
+							}
+							&::-moz-range-thumb { .mx_range_thumb() }
+						}
+						//...
+						textarea { 
+							width: 100%;
+							min-height: @dim * 10; //~10 lines
+							max-height: @dim * 30; //~30 lines
+						}
+						select { //@source bootstrap:.custom-select
+							vertical-align: middle;
+							//background: var(--color-text) url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right 0.75rem center/8px 10px;
+								//background: #fff url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right 0.75rem center/8px 10px;
+							//appearance: none;
+						}
+						
+						.checkboxes label { padding: 0 } //correction
+						@{row} > div.col {
+							@media screen and (max-width: @break_mobile){ padding-left: 1% }
+						}
+						span.tooltip { //bug fix: positioning
+							opacity: 1;
+							position: relative;
+						}
+						:is(input[type=checkbox], input[type=radio]).switcher-icon ~ label {
+							margin-bottom: 0;
+
+							&.switcher {
+								color: var(--color-button);
+								font-size: @dim2 - @dim_4;
+								line-height: 1;
+							}
+						}
+						a.dz-remove { //files
+							color: var(--color-button);
+							text-decoration: none;
+							font-size: @dim2;
+							transition: font-weight @duration ease;
+				
+							&:active, &:focus, &:hover {
+								text-decoration: none; //overwrite dropzone native behaviour
+								font-weight: bold;
+							}
+						}
+						div.switch-toggle { //toggle
+							border-color: var(--color-button);
+							
+							label:hover,
+							input[type=radio]:checked + label 
+							{
+								font-weight: bold;
+								color: var(--color-button);
+							}
+						}
+					}
+					&input-wrapper { position: relative }
+					&tabs > div.tabs- { //tabs
+						&nav a {
+							border-color: var(--color-button);
+							color: var(--color-text);
+							text-decoration: none;
+			
+							&:hover,
+							&.active {
+								font-weight: bold;
+								color: var(--color-button);
+							}
+							&.active span { color: var(--color-button) }
+						}
+						&content {
+							margin: 0 -1px; //correction
+							padding: @dim_2;
+							border: 1px solid var(--color-button);
+							border-top: none;
+							border-bottom-left-radius: @dim_radius;
+							border-bottom-right-radius: @dim_radius;
+			
+							> div.tab__content {
+								padding-top: 0;
+							}
+						}
+					}
+				}
+				&.buttons > button:nth-child(n + 2) { margin-left: @dim_bootstrap; }
+			}
+			button { //files & buttons
+				color: var(--color-text);
+				background-color: var(--color-button);
+				border-color: var(--color-button);
+				transition: transform @duration ease;
+				border: 1px solid transparent; //@source bootstrap::.btn
+				padding: .375rem .75rem; //...
+				border-radius: @dim_radius; //...
+				&:active, &:focus, &:hover { transform: scale(1.1) }
+			}
+			button,
+			a.dz-remove
+			{
+				&.disabled, &:disabled { cursor: not-allowed }
+			}
+			~ .mask {
+				margin-top: -@dim_bootstrap; //correction
+				z-index: @z_index * 1000; //the GRAV native .tooltip:z-index = 1070
+				&:not(.active){ .mx_hide() }
+			}
+		}
+		&-left {
+			div.form-tabs > div.tabs-nav a.active,
+			form div.form-field div.switch-toggle label:hover,
+			form div.form-field div.switch-toggle input[type=radio]:checked + label
+			{ background-color: var(--color-right) }
+		}
+		&-right {
+			div.form-tabs > div.tabs-nav a.active,
+			form div.form-field div.switch-toggle label:hover,
+			form div.form-field div.switch-toggle input[type=radio]:checked + label
+			{ background-color: var(--color-left) }
+		}
+	}
+}

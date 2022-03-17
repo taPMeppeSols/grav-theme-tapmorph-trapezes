@@ -1,0 +1,16 @@
+enabled: true
+production: false
+slug: tapmorph
+acronym: taPMORph
+
+title:
+  enabled: true
+registration_status: false
+social_networks:
+  status: true
+  urls_facebook: https://facebook.com/
+  urls_instagram: https://instagram.com/
+  urls_twitter: https://twitter.com/
+
+notification:
+  success: THEME_TAPMORPH_TRAPEZES.REGISTRATION_RECIPIENT

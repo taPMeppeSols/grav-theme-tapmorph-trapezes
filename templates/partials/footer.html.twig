@@ -1,0 +1,164 @@
+{#
+@since PM (27.11.2020)
+@description this script is used to generate the footer snippet
+
+@see https://learn.getgrav.org/17/themes/twig-tags-filters-functions/functions#regex-replace
+@see https://alvinalexander.com/drupal/drupal-8-how-string-starts-ends-with-twig-templates
+#alternative to `regex_replace` {% if url and url starts with 'https://' %}
+#}
+
+{# background image #}
+{% if THEME.foot %}
+	{% set url = THEME.foot|first|tapmorphResource %}
+{% else %}
+	{% set url = url('theme://images/background.jpg') %}
+{% endif %}
+
+{# legal pages #}
+{% set object = null %}
+{% set privacyPolicy = null %}
+{% set imprint = null %}
+{% for page in pages.children if object is null %} {# fetching the pages #}
+	{% if page.isPage and page.header.title and page.content %}
+		{% set temp = page.url(false, false, false, true) %}
+		{% if temp == THEME.privacy_policy %}
+			{% set privacyPolicy = page %}
+		{% elseif temp == THEME.imprint %}
+			{% set imprint = page %}
+		{% elseif privacyPolicy and imprint %}
+			{% set object = page %}
+		{% endif %}
+	{% endif %}
+{% endfor %}
+
+{% autoescape false %}
+<article id="footer" style='background-image: url("{{ url }}")'>
+	<div class="mask"></div>
+	<div class='container row {{ SLUG }}-row footer-row'>
+		{% block newsletter %}
+			{% set notification = uri.query('registration') %}
+
+			{% if notification %}
+				{% set type = null %} {# the notification type: success, error, ... #}
+				{% set prefix = null %}
+
+				{% if notification|starts_with('deletion') %}
+					{% set type = regex_replace(notification, '/^deletion[_-]/', '') %}
+					{% set prefix = 'deletion_' %}
+				{% else %}
+					{% set type = notification %}
+					{% set prefix = 'response_' %}
+				{% endif %}
+
+				<section class='{{ tapmorph_trapeze_col }}6 footer-col newsletter'>
+					{% if type == 'error' %}
+						<div class="alert notification notification-{{ type }} active">
+							{{ (prefix ~ type)|tapmorphLabel }}
+						</div>
+					{% else %}
+						<div class="alert notification notification-{{ type }} active">
+							{% set type = regex_replace(type, '/-/', '_') %} {# class to key #}
+							{{ (prefix ~ type)|tapmorphLabel }}
+						</div>
+					{% endif %}
+				</section>
+			{% elseif THEME.registration_status and THEME.registration_recipients and privacyPolicy %}
+				<section class='{{ tapmorph_trapeze_col }}6 footer-col newsletter'>
+					<div class="title">{{ 'newsletter'|tapmorphLabel }}</div>
+					<div class="registration" id="registration">
+						<div class="input-group fields">
+							<input type="text" class="name" placeholder="{{ 'name'|tapmorphLabel }}" autocomplete="off">
+							<input type="email" class="form-control email" placeholder="{{ 'email'|tapmorphLabel }}" autocomplete="off">
+							<div class="input-group-append">
+								<button class="btn button" {{ privacyPolicy is null ? '' : 'disabled' }}>{{ 'register'|tapmorphLabel }}</button>
+							</div>
+						</div>
+						<div class="{{ SLUG }}-row privacy-policy">
+							<div class="col-1">
+								<input id="privacy_policy_checkbox" type="checkbox" class="switcher-icon privacy-policy">
+								<label for="privacy_policy_checkbox" class="switcher">
+									<i class="icon-square-o"></i>
+									<i class="icon-check-square-o"></i>
+								</label>
+							</div>
+							<div class="col"> {# wrap & highlight the term #}
+								{{ 'privacy_policy'|tapmorphLabel|regex_replace(
+									'/\\[([^\\[\\]]+)\\]/', 
+									'<a class="button-link" href="'~ privacyPolicy.url ~'" target="_blank">$1</a>'
+								) }}
+							</div>
+						</div>
+					</div>
+					{% for key in ['progress', 'success', 'exists', 'error'] %}
+						<div class="alert notification notification-{{ key }}" role="alert">
+							{{ ('notification_'~ key)|tapmorphLabel }}
+						</div>
+					{% endfor %}
+				</section>
+			{% endif %}
+		{% endblock newsletter %}
+		{% if THEME.social_networks.status %}
+			<section class='{{ tapmorph_trapeze_col }}6 footer-col socials-networks'>
+				{% block socials %}
+				<div class="title">{{ 'social_networks'|tapmorphLabel }}</div>
+				{% if THEME.social_networks.order %} {# TRUE if the order has been manually set by the administrator #}
+				<ul class="nav custom">
+					{% for data in THEME.social_networks.order %}
+					{% set network = data.target %}
+					{% set url = THEME.social_networks["urls_" ~ network] %}
+					{% if url %}
+					<li>
+						<a class="icon-{{ network|replace({'_': " -"}) }} btn button"
+							href="{{ regex_replace(url, '#^(https?://)?#', 'https://') }}" target="_blank"></a>
+					</li>
+					{% endif %}
+					{% endfor %}
+				</ul>
+				{% else %} {# TRUE if the default/alphabetical order is used #}
+				<ul class="nav {{ SLUG }}">
+					{% for network in ['facebook', 'github', 'instagram', 'linkedin', 'tumblr', 'twitter', 'whatsapp', 'xing'] %}
+					{% set url = THEME.social_networks["urls_" ~ network] %}
+					{% if url %}
+					<li>
+						<a class="icon-{{ network|replace({'_': " -"}) }} btn button"
+							href="{{ regex_replace(url, '#^(https?://)?#', 'https://') }}" target="_blank"></a>
+					</li>
+					{% endif %}
+					{% endfor %}
+				</ul>
+				{% endif %}
+				{% endblock %}
+			</section>
+		{% endif %}
+	</div>
+	<div class='container row {{ SLUG }}-row footer-row'>
+		<section class='{{ tapmorph_trapeze_col }}6 footer-col legal'>
+			{% block legal %}
+				<ul class="nav">
+					{% if privacyPolicy %}
+						<li>
+							<a class="button-link" href="{{ privacyPolicy.url }}" target="_blank">{{ privacyPolicy.header.title }}</a>
+						</li>
+					{% endif %}
+					{% if imprint %}
+						<li>
+							<a class="button-link" href="{{ imprint.url }}" target="_blank">{{ imprint.header.title }}</a>
+						</li>
+					{% endif %}
+				</ul>
+			{% endblock %}
+		</section>
+		<section class='{{ tapmorph_trapeze_col }}6 footer-col copyright'>
+			{% if THEME.copyright %}
+				{{ regex_replace(
+					THEME.copyright,
+					['/\\[copy\\]/', '/\\[year\\]/', '/\\[title\\]/'],
+					['&copy;', now|date("Y"), site.title]
+				) }}
+			{% else %}
+				&copy; {{ now|date("Y") }} {{ site.title }}
+			{% endif %}
+		</section>
+	</div>
+</article>
+{% endautoescape %}

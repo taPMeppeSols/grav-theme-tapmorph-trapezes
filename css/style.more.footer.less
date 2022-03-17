@@ -1,0 +1,61 @@
+//out: false, main: style.less
+/**
+	@since PM (13.03.2021) standalone
+	@copyright taPMeppe solutions
+	this script is used to design the footer
+*/
+#footer {
+	.mx_bg_img(contain);
+	margin-top: -@dim_trapeze;
+	position: relative;
+
+	&.bottom {
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+
+		.footer-row:nth-child(2) { padding-top: @dim2 }
+	}
+	.footer-row {
+		padding-bottom: @dim_bootstrap;
+		
+		&:nth-child(2) { padding-top: calc(@dim_trapeze + @dim2) }
+		> *:nth-last-child(n+2) {
+			@media screen and (max-width: @break_mobile){ padding-bottom: @dim_bootstrap }
+		}
+	}
+	.title { margin-bottom: @dim_2 }
+	.registration {
+		.fields {
+			> input {
+				&.name { .mx_hide_2() } //honey pot
+				&.email { border: none } //bug fix
+			}
+		}
+		.privacy-policy {
+			padding-top: @dim_bootstrap;
+			padding-bottom: @dim_bootstrap;
+
+			@media screen and (max-width: @break_mobile){ padding-bottom: 0 }
+			> div.col { padding: 0 0 0 @dim_2 }
+			label {
+				margin-top: ~"-@{dim_4}";
+				margin-bottom: 0;
+				font-size: @dim2;
+				color: var(--color-button)
+			}
+		}
+	}
+	.socials-networks {
+		li { margin: 0 @dim_4 @dim_2 0 }
+		a { font-size: @dim + @dim_2 }
+	}
+	.legal a { padding-right: @dim2 }
+	@media screen and (max-width: @break_mobile){
+		.socials-networks { margin-left: @dim_4 * -1 }
+	}
+	@media screen and (min-width: @break_laptop){
+		.socials-networks { float: right }
+		.copyright { text-align: right }
+	}
+}

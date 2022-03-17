@@ -1,0 +1,11 @@
+{#
+	this script is used as the forms storage template
+	@since PM (12.03.2021)
+	@see https://learn.getgrav.org/17/forms/forms/reference-form-actions#save
+#}
+{% for field in form.fields %}
+	<div>
+		<strong>{{ field.label }}</strong>: 
+		{{ string(form.value(field.name)|e) }}
+	</div>
+{% endfor %}

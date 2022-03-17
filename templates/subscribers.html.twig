@@ -1,0 +1,9 @@
+{#
+	@description this script is used to describe the subscribers HTML document
+	@since PM (14.03.2021)
+	@see https://learn.getgrav.org/17/themes
+#}
+{% extends 'default.html.twig' %}
+
+{% block template %}subscribers{% endblock %}
+{% block content %}{{ tapmorphSubscribers()|raw }}{% endblock %}

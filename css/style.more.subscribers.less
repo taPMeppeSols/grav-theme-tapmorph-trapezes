@@ -1,0 +1,134 @@
+//out: false, main: style.less
+/**
+	@since PM (28.02.2021)
+	@copyright taPMeppe solutions
+	this script is used to design the list of subscribers
+*/
+:is(input[type=checkbox], input[type=radio]).switcher-icon { 
+	.mx_hide();
+
+	~ label.switcher > i { .mx_pointer() }
+	&:checked ~ label.switcher > i:first-child, //.icon-square-o
+	&:not(:checked) ~ label.switcher > i:last-child //.icon-check-square-o
+	{ .mx_hide() }
+}
+.button.floater {
+	z-index: @z_index * 4;
+	position: fixed;
+	right: @dim_bootstrap;
+	//top: ?;
+	//bottom: ?;
+	transition: all @duration ease;
+	//transition: color @duration ease, background-color @duration ease, opacity @duration ease;
+	
+	@media screen and (min-width: @break_laptop){
+		&.active:not(:hover){ opacity: @opacity_off }
+	}
+	&:not(.active){
+		opacity: 0;
+		visibility: hidden
+	}
+	&#topper { bottom: @dim_bootstrap }
+	&#subscribers_ {
+		@dim_floater_top: 15%;
+
+		&selector { 
+			top: @dim_floater_top;
+
+			&.effective > i.icon-square-o,
+			&:not(.effective) > i.icon-check-square-o
+			{ .mx_hide() }
+		}
+		&networker { top: calc(@dim_floater_top + @dim + @dim2) }
+		&remover { top: calc(@dim_floater_top + 2*(@dim + @dim2)) }
+	}
+	&.subscribers-buttons {
+		//padding: @dim_4 @dim_2;
+		//width: @dim2 + @dim_2;
+		//padding: @dim_4;
+    //width: @dim2;
+		padding: 5px; //empiric to enable cross-theme design
+    width: 40px; //...
+
+		> i { 
+			font-size: @dim *(5/4);
+			line-height: 1.5;
+		}
+	}
+}
+
+#subscribers_ {
+	&authenticator {
+		max-width: @dim_form;
+		margin-left: auto;
+		margin-right: auto;
+
+		div { margin-bottom: @dim2 }
+		input {
+			width: 100%;
+			font-size: @dim + @dim_2;
+			line-height: 1.5;
+			text-align: center;
+			font-weight: 300;
+			padding: @dim_4
+		}
+		@media screen and (max-width: @break_mobile){ 
+			div { margin-bottom: @dim }
+			input {
+				font-size: @dim;
+				padding: @dim_2
+			}
+		}
+	}
+	&container {
+		display: flex;
+		flex-wrap: wrap;
+
+		.subscribers- {
+			&cell {
+				display: flex;
+				overflow-x: hidden;
+				//flex-wrap: wrap;
+				
+				@media screen and (max-width: @break_mobile){ 
+					flex: 0 0 100%;
+					max-width: 100%;
+				}
+				@media screen and (min-width: @break_laptop){ 
+					flex: 0 0 50%;
+					max-width: calc(50% - @dim_2);
+					margin-right: @dim_2;
+				}
+				@media screen and (min-width: @break_desktop){ 
+					flex: 0 0 100%/3;
+					max-width: calc(100%/3 - @dim_2);
+					margin-right: @dim_2;
+				}
+				@media screen and (min-width: @break_television){ 
+					flex: 0 0 25%;
+					max-width: calc(25% - @dim_2);
+					margin-right: @dim_2;
+				}
+			}
+			&switcher { 
+				font-size: @dim2;
+				text-align: left
+			}
+			&info { 
+				margin-left: @dim_bootstrap;
+				margin-right: @dim_bootstrap;
+				text-align: left;
+				flex-basis: 0;
+				flex-grow: 1;
+	
+				a { 
+					text-decoration: none;
+					//color: ? can be set by the below mixin to ensure maximum flexibility
+				}
+			}
+		}
+	}
+}
+.mx_subscribers_info_anchor_color(@color){
+	div#subscribers .subscribers-info a { color: @color }
+}

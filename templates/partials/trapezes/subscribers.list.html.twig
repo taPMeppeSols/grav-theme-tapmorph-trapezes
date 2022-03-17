@@ -4,7 +4,7 @@
 			<div class="{{ prefix }}-switcher">
 				{% set id = regex_replace(address.email, "/\\W/", '_') %}
 				{# `\\W+` is not used on purpose #}
-				<input id="checkbox_email_address_{{ id }}_{{ i }}" type="checkbox" class="switcher-icon" data-{{ prefix }}="{{ address.email }}">
+				<input id="checkbox_email_address_{{ id }}_{{ i }}" type="checkbox" class="browser-{{ browser.browser }} switcher-icon" data-{{ prefix }}="{{ address.email }}">
 				<label for="checkbox_email_address_{{ id }}_{{ i }}" class="switcher">
 					<i class="icon-square-o"></i>
 					<i class="icon-check-square-o"></i>

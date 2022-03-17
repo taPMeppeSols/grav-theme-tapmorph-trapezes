@@ -1,16 +1,27 @@
 //out: false, main: style.less
-/**
-	@since PM (28.02.2021)
-	@copyright taPMeppe solutions
-	this script is used to design the list of subscribers
-*/
-:is(input[type=checkbox], input[type=radio]).switcher-icon { 
+
+.mx_switcher_icon(){
 	.mx_hide();
 
 	~ label.switcher > i { .mx_pointer() }
 	&:checked ~ label.switcher > i:first-child, //.icon-square-o
 	&:not(:checked) ~ label.switcher > i:last-child //.icon-check-square-o
 	{ .mx_hide() }
+}
+
+/**
+	@copyright taPMeppe solutions
+	@since PM (28.02.2021) this script is used to design the list of subscribers
+*/
+input[type=checkbox], input[type=radio]
+{
+	&.browser-vivaldi.switcher-icon {
+		.mx_switcher_icon();
+	}
+}
+:is(input[type=checkbox], input[type=radio]).switcher-icon { 
+	// @since PM (17.03.2022) :is is not working on vivaldi: https://caniuse.com/?search=%3Ais
+	.mx_switcher_icon();
 }
 .button.floater {
 	z-index: @z_index * 4;

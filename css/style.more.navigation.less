@@ -32,19 +32,23 @@
 		}
 	}
 	.menu {
-		> section { 
+		> .navigation  { 
 			float: right;
 			height: 100%;
 			position: relative;
 
-			&.languages { 
-				@media screen and (max-width: @break_mobile){ margin-right: @dim_2 }
-				@media screen and (min-width: @break_laptop){ margin-right: @dim }
+			@media screen and (max-width: @break_mobile){
+				&.languages { margin-right: @dim_2 }
+				.language-desktop { .mx_hide() }
+			}
+			@media screen and (min-width: @break_laptop){
+				&.languages { margin-right: @dim }
+				.language-mobile { .mx_hide() }
 			}
 		}
 		@{button}{
 			text-transform: var(--text-transform-navigation);
-			min-height: 100%;
+			// min-height: 100%;
 			display: flex; //bug fix for the internal positioning of the icon
 		}
 		span { 

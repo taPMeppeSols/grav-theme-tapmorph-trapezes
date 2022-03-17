@@ -101,7 +101,7 @@ Cras imperdiet eleifend dui vel blandit.
 _Ut bibendum libero_ at bibendum laoreet.
 **Nunc accumsan** euismod nisl a ultricies.
 <video controls>
-	<source src="">
+  <source src="">
 </video>
 [/trapezeBlock]
 [trapezeBlock class="" id="" image="" compact=1]
@@ -111,7 +111,7 @@ Cras imperdiet eleifend dui vel blandit.
 _Ut bibendum libero_ at bibendum laoreet.
 **Nunc accumsan** euismod nisl a ultricies.
 <video controls>
-	<source src="">
+  <source src="">
 </video>
 [/trapezeBlock]
 ```
@@ -124,8 +124,7 @@ _Ut bibendum libero_ at bibendum laoreet.
 * **interval** the amount in milliseconds of time to delay between automatically switch to the next item. Set to `false` to prevent the automatic switch.
 * **fade** If `0` or _UNSET_ the switch will be done by sliding instead of fading.
 * **indicators** If `0` the indicators at the bottom will be omitted. 
-* **controls** If `0` the controls at the left & right will be omitted. 
-* **\_content_** The block content.
+* **controls** If `0` the controls at the left & right will be omitted.
 > For more information visit the [Bootstrap carousel documentation](https://getbootstrap.com/docs/5.1/components/carousel/).
 ```yaml
 [trapezeCarousel class="" id="" image="" fixed="" interval="0" fade="0" indicators="0" controls="0"]
@@ -138,18 +137,18 @@ _Ut bibendum libero_ at bibendum laoreet.
 * **interval** the individual amount in milliseconds of time to delay between automatically cycling to the next item.
 * **compact** If `0` or _UNSET_ the text will NOT be compact.
 * **image** The image URL.
-* **\_content_** The item content.
 * **block** If `0` or _UNSET_ the content will be treated as a block.
+* **\_content_** The item content.
 ```yaml
 [trapezeCarousel class="" id="" image="" fixed="" interval="5000" fade="1" indicators="1" controls="1"]
 [trapezeCarouselItem title="" image=""]
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-_Ut bibendum libero_ at bibendum laoreet.
-**Nunc accumsan** euismod nisl a ultricies.
+_Ut bibendum libero at bibendum laoreet._
+**Nunc accumsan euismod nisl a ultricies.**
 [/trapezeCarouselItem]
 [trapezeCarouselItem block=1 interval=0]
 <video controls>
-<source src="">
+  <source src="">
 </video>
 [/trapezeCarouselItem]
 [/trapezeCarousel]
@@ -167,8 +166,8 @@ _Ut bibendum libero_ at bibendum laoreet.
 ```yaml
 [trapezeParagraph class="" id="" image="" title="" background="1" fixed="1" compact="1"]
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-_Ut bibendum libero_ at bibendum laoreet.
-**Nunc accumsan** euismod nisl a ultricies.
+_Ut bibendum libero at bibendum laoreet._
+**Nunc accumsan euismod nisl a ultricies.**
 [/trapezeParagraph]
 ```
 
@@ -189,13 +188,14 @@ The theme created as response to our need for a simple and lightweight solution 
 You can alternatively visit the [demo site](https://demo.trapezes.tapmeppe.solutions).
 
 The following browsers have been test and are fully supported:
-- [brave](https://brave.com/) (version 1.4.95 x64-bit)
-- [VIVALDI](https://vivaldi.com/) (version 2.5.1525.43 x64-bit)
-- [Opera](https://www.opera.com/) (version 67.0.3575.31)
-- [Chrome](https://www.google.com/chrome/) (version 80.0.3987.122 x64-bit)
-- [Firefox](https://www.mozilla.org/firefox/) (version 73.0.1 x64-bit)
-- [Edge](https://www.microsoft.com/edge) (version 44.18362.449.0)
-- [Edge Chromium](https://www.microsoft.com/edge) (version 84.0.522.52 x64-bit)
+- Windows 10 x64-bit
+  - [brave](https://brave.com/) (version 1.36.112)
+  - [VIVALDI](https://vivaldi.com/) (version 2.5.1525.43)
+  - [Opera](https://www.opera.com/) (version 84.0.4316.42)
+  - [Chrome](https://www.google.com/chrome/) (version 99.0.4844.74)
+  - [Firefox](https://www.mozilla.org/firefox/) (version 73.0.1)
+  - [Edge Chromium](https://www.microsoft.com/edge) (version 99.0.1150.46)
+  - ~~[Edge](https://www.microsoft.com/edge) (version 44.18362.449.0)~~
 
 The following browsers are still up for testing:
 - [Safari](https://www.apple.com/safari/)

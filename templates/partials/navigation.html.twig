@@ -21,7 +21,7 @@
 			{% block menu %}
 				<nav class="col {{ SLUG }}-col menu">
 					{# pages #}
-					<section class="pages">
+					<div class="navigation pages">
 						{# 
 							@see https://getbootstrap.com/docs/4.5/components/modal/#live-demo
 							@see https://getbootstrap.com/docs/4.5/components/modal/#scrolling-long-content
@@ -48,11 +48,11 @@
 								</div>
 							</div>
 						</div>
-					</section>
+					</div>
 
 					{# languages #}
 					{% if system.languages.supported|length > 1 %}
-						<section class="languages dropdown">
+						<div class="navigation languages dropdown">
 							{#
 								@see https://getbootstrap.com/docs/4.5/components/dropdowns/
 								'data-toggle="dropdown"' has been removed; the toggling is handled in logic.js
@@ -64,18 +64,20 @@
 								aria-haspopup="true" 
 								aria-expanded="false"
 							>
-								<span>{{ tapmorph_languages[LANG] }}</span>
+								<span class="language-desktop">{{ tapmorph_languages[LANG] }}</span>
+								<span class="language-mobile">{{ LANG }}</span>
 								<i class="icon-chevron-down"></i>
 								<i class="icon-chevron-up"></i>
 							</button>
 							<div id="container_languages" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 								{% for lang in system.languages.supported if LANG != lang %}
 									<a class="dropdown-item" href="{{ page.url(true, true)|regex_replace('@/'~ LANG ~'(/|$)@', '/'~ lang ~'$1') }}">
-										{{ tapmorph_languages[lang] }}
+										<span class="language-desktop">{{ tapmorph_languages[lang] }}</span>
+										<span class="language-mobile">{{ lang }}</span>
 									</a>
 								{% endfor %}
 							</div>
-						</section>
+						</div>
 					{% endif %}
 				</nav>
 			{% endblock menu %}

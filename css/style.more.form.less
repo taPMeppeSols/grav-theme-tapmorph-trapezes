@@ -129,7 +129,8 @@ html.template-form > & { //html.template-form > body
 							opacity: 1;
 							position: relative;
 						}
-						:is(input[type=checkbox], input[type=radio]).switcher-icon ~ label {
+
+						.mx_switcher_icon_label(){
 							margin-bottom: 0;
 
 							&.switcher {
@@ -137,6 +138,17 @@ html.template-form > & { //html.template-form > body
 								font-size: @dim2 - @dim_4;
 								line-height: 1;
 							}
+						}
+
+						input[type=checkbox], input[type=radio]
+						{
+							&.browser-vivaldi.switcher-icon ~ label {
+								.mx_switcher_icon_label();
+							}
+						}
+						:is(input[type=checkbox], input[type=radio]).switcher-icon ~ label {
+							// @since PM (17.03.2022) :is is not working on vivaldi: https://caniuse.com/?search=%3Ais
+							.mx_switcher_icon_label();
 						}
 						a.dz-remove { //files
 							color: var(--color-button);

@@ -33,7 +33,7 @@
 					id="{{ id|e }}"
 					value="{{ val|e }}"
 					name="{{ (scope ~ field.name)|fieldName ~'['~ name ~']' }}"
-					class="switcher-icon {% if field.classes is defined %}{{ field.classes }}{% endif %}"
+					class="browser-{{ browser.browser }} switcher-icon {% if field.classes is defined %}{{ field.classes }}{% endif %}"
 					{% if checked %}checked="checked"{% endif %}
 					{% if field.disabled or isDisabledToggleable %}disabled="disabled"{% endif %}
 				>

@@ -19,6 +19,7 @@
 	.footer-row {
 		padding-bottom: @dim_bootstrap;
 		
+		* { position: relative } //@since PM (18.03.2022) bug fix: .mask inexplicable behaviour;
 		&:nth-child(2) { padding-top: calc(@dim_trapeze + @dim2) }
 		> *:nth-last-child(n+2) {
 			@media screen and (max-width: @break_mobile){ padding-bottom: @dim_bootstrap }

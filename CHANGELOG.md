@@ -5,6 +5,7 @@
 2. [](#bugfix)
 	* The `:is` pseudo in CSS isn't supported in VIVALDI. Therefore a workaround had to be implemented for the browser.
 	* The languages codes are now used on the mobile view to respond to the positional problems in the navigation.
+	* `.map` inexplicable behaviour in the footer has been neutralised.
   
 ## 16.03.2022
 1. [](#new)

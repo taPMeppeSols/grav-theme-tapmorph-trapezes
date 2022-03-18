@@ -12,7 +12,7 @@ homepage: https://github.com/taPMeppeSols/grav-theme-tapmorph-trapezes
 demo: https://tapmorph.trapezes.tapmeppe.solutions
 keywords: tapmeppe, theme, responsive, modern, newsletter, grav, bootstrap, solid-state
 bugs: https://github.com/taPMeppeSols/grav-theme-tapmorph-trapezes/issues
-readme: https://github.com/taPMeppeSols/grav-theme-tapmorph-trapezes/blob/master/README.md
+readme: https://github.com/taPMeppeSols/grav-theme-tapmorph-trapezes/blob/main/README.md
 license: MIT
 
 dependencies:

@@ -174,7 +174,7 @@ _Ut bibendum libero at bibendum laoreet._
 
 ## Customisation :hammer: :wrench:
 ### Theme
-All customisation should be done using [theme inheritance](https://learn.getgrav.org/17/themes/customization#theme-inheritance) to allow for future updates. This way we can keep updating and you can keep the feature you care about. I hope we all have as much fun as we. Good luck :smiley: :muscle: :metal: .
+All customisation should be done using [theme inheritance](https://learn.getgrav.org/17/themes/customization#theme-inheritance) to allow for future updates. This way we can keep updating and you can keep the feature you care about. I hope we all have as much fun as we.
 
 ### Subscribers
 To customise the subscribing process:
@@ -182,10 +182,12 @@ To customise the subscribing process:
 * paste it in `__YOUR_SITE__/user/data/tapmorph-trapezes/SubscribersCustom.php` and
 * adapt the `protected` functions to your liking.
 
+Good luck. :smiley: :muscle: :metal:
+
 
 ## Preview :see_no_evil: :hear_no_evil: :speak_no_evil:
-The theme created as response to our need for a simple and lightweight solution for the online presence of our team. Therefore, currently there is no better preview than our [homepage](https://tapmeppe.solutions).<br>
-You can alternatively visit the [demo site](https://demo.trapezes.tapmeppe.solutions).
+The theme created as response to our need for a simple and lightweight solution for the online presence of our team. ~~Therefore, currently there is no better preview than our [homepage](https://tapmeppe.solutions).<br>
+You can alternatively visit the [demo site](https://demo.trapezes.tapmeppe.solutions).~~
 
 The following browsers have been test and are fully supported:
 - Windows 10 x64-bit

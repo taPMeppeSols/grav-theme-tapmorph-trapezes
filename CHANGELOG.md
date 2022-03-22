@@ -1,4 +1,11 @@
 # v1.0.4
+## 22.03.2022
+1. [](#new)
+2. [](#improved)
+	* This and that.
+3. [](#bugfix)
+
+# v1.0.4
 ## 17.03.2022
 1. [](#new)
 	* The theme has been tested of all major browser except Safari

@@ -1,8 +1,8 @@
 name: taPMORph trapezes
 slug: tapmorph-trapezes
 type: theme
-version: 1.0.4
-description: taPMORph trapezes is an adaptation of the free template <a href="https://html5up.net/solid-state" target="_blank">solid state</a> in the GravCMS.
+version: 1.0.5
+description: taPMORph trapezes is an adaptation of the free template <a href="https://html5up.net/solid-state" target="_blank">solid state</a> in the GravCMS.<br><b>Documentation</b><ul style="margin:0; padding:0 0 0 1em"><li>https://www.markdownguide.org/cheat-sheet</li><li>https://github.com/taPMeppeSols/grav-theme-tapmorph-trapezes#shortcodes</li></ul>
 icon: play #power-off
 author:
   name: taPMeppe solutions

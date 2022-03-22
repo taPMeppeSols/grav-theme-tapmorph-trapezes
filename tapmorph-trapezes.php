@@ -11,12 +11,9 @@
  * @see https://learn.getgrav.org/17/plugins/event-hooks
  * 
  * @example development
- * - http://tapmeppe/solutions/tapmorph/grav_development/admin
- * - http://tapmeppe/solutions/tapmorph/grav_development/en
- * - http://tapmorph.grav.dev/en
- * - http://tapmorph.grav.dev/admin
- * - http://tapmorph.grav.tests/en
- * - http://tapmorph.grav.tests/admin
+ * - http://tapmeppe/tapmorph/application.abcd/admin
+ * - http://tapmeppe/tapmorph/application.maintenance/admin
+ * - http://tapmeppe/tapmorph/application.trapezes/admin
  */
 
 namespace Grav\Theme;
